@@ -1,0 +1,538 @@
+{
+  "navbar": {
+    "brand": {
+      "name": "PAPTRIX",
+      "tagline": "PAPER & PACKAGING SOLUTIONS",
+      "logo": "/images/logo.png",
+      "href": "/"
+    },
+    "navLinks": [
+      {
+        "id": "home",
+        "label": "Home",
+        "href": "/",
+        "isActive": true
+      },
+      {
+        "id": "about",
+        "label": "About Us",
+        "href": "/about",
+        "isActive": false
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "href": "/services",
+        "isActive": false
+      },
+      {
+        "id": "testimonials",
+        "label": "Testimonials",
+        "href": "/testimonials",
+        "isActive": false
+      },
+      {
+        "id": "blogs",
+        "label": "Blogs",
+        "href": "/blogs",
+        "isActive": false
+      },
+      {
+        "id": "contact",
+        "label": "Contact Us",
+        "href": "/contact-us",
+        "isActive": false
+      }
+    ],
+    "cta": {
+      "label": "Get a Quote",
+      "href": "/get-a-quote"
+    }
+  },
+  "hero": {
+    "bannerImage": "/images/Hero-Banner.png",
+    "titleLine1": "Packaging",
+    "titleLine2": "That Delivers",
+    "subtitle": "Premium Paper & Packaging Solutions customized for your brand",
+    "ctaPrimary": {
+      "label": "Explore Products",
+      "href": "/services"
+    },
+    "ctaSecondary": {
+      "label": "Contact Us",
+      "href": "/contact-us"
+    }
+  },
+  "about": {
+    "badge": "ABOUT US",
+    "headingMain": "PACKAGING",
+    "headingHighlight": "BUILT AROUND PURPOSE",
+    "description": "At Paptrix, we create packaging solutions that are practical, reliable and sustainable. From corrugated boxes to custom paper packaging, we focus on quality, efficiency and eco-friendly materials to support businesses of every size.",
+    "bottomHeading": {
+      "line1": "AND DESIGNED",
+      "line2": "FOR A",
+      "highlight": "GREENER",
+      "line3": "TOMORROW."
+    },
+    "image": "/images/Eco-Friendly.png"
+  },
+  "services": {
+    "heading": {
+      "whiteText": "OUR",
+      "plumText": "SERVICES"
+    },
+    "items": [
+      {
+        "id": "corrugated-boxes",
+        "categoryLine1": "Corrugated Packaging",
+        "categoryLine2": "Solutions",
+        "titleLine1": "CORRUGATED",
+        "titleLine2": "BOXES",
+        "ctaText": "SEE DETAIL",
+        "href": "/services/corrugated-boxes",
+        "image": "/images/Open-Cardboard.png"
+      },
+      {
+        "id": "kraft-paper",
+        "categoryLine1": "Kraft Paper",
+        "categoryLine2": "Products",
+        "titleLine1": "KRAFT",
+        "titleLine2": "PAPER",
+        "ctaText": "SEE DETAIL",
+        "href": "/services/kraft-paper",
+        "image": "/images/Kraft-Paper.png"
+      },
+      {
+        "id": "custom-packaging",
+        "categoryLine1": "Custom Packaging",
+        "categoryLine2": "& Branding",
+        "titleLine1": "CUSTOM",
+        "titleLine2": "PACKAGING",
+        "ctaText": "SEE DETAIL",
+        "href": "/services/custom-packaging",
+        "image": "/images/Minimalist-Plum.png"
+      },
+      {
+        "id": "folding-cartons",
+        "categoryLine1": "Folding Carton",
+        "categoryLine2": "Packaging",
+        "titleLine1": "FOLDING",
+        "titleLine2": "CARTONS",
+        "ctaText": "SEE DETAIL",
+        "href": "/services/folding-cartons",
+        "image": "/images/Premium-Purple.png"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "badge": "WHY CHOOSE US",
+    "headingMain": "PACKAGING",
+    "headingSub": "BUILT AROUND",
+    "headingHighlight": "YOUR SUCCESS",
+    "description": "At Paptrix, we combine quality, innovation and sustainable to deliver packaging solutions that create real value for your business.",
+    "features": [
+      {
+        "id": "superior-quality",
+        "title": "Superior Quality",
+        "description": "Durable and reliable packaging designed to protect your products at every step.",
+        "icon": "ribbon-badge"
+      },
+      {
+        "id": "innovative-solutions",
+        "title": "Innovative Solutions",
+        "description": "Custom packaging designs tailored to your product and brand needs.",
+        "icon": "lightbulb-idea"
+      },
+      {
+        "id": "sustainable-approach",
+        "title": "Sustainable Approach",
+        "description": "Eco-friendly materials and processes for a greener tomorrow.",
+        "icon": "leaf-eco"
+      }
+    ],
+    "banner": {
+      "image": "/images/Eco-Friendly.png",
+      "overlayCard": {
+        "titleLine1": "We Deliver",
+        "titleLine2": "Packaging That Performs.",
+        "subLine1": "Reliable. Sustainable.",
+        "subLine2": "Built for Your Business."
+      }
+    }
+  },
+  "testimonials": {
+    "watermark": "Testimonials",
+    "title": "Our Clients Say",
+    "subtitle": "Trusted by businesses for quality, reliability and innovative packaging solutions.",
+    "backgroundImage": "/images/Open-Cardboard.png",
+    "items": [
+      {
+        "id": "1",
+        "quote": "Paptrix delivered high-quality packaging solutions that perfectly matched our brand requirements. Their team is professional, responsive and easy to work with. Highly recommended!",
+        "rating": 5,
+        "author": {
+          "name": "Rahul Mehta",
+          "role": "Business Owner",
+          "avatar": "/images/logo.png"
+        }
+      },
+      {
+        "id": "2",
+        "quote": "Outstanding corrugated boxes and custom kraft paper products! The durability and print precision elevated our e-commerce unboxing experience completely.",
+        "rating": 5,
+        "author": {
+          "name": "Ananya Sharma",
+          "role": "Founder, EcoGlow",
+          "avatar": "/images/logo.png"
+        }
+      },
+      {
+        "id": "3",
+        "quote": "Their sustainable approach and on-time bulk delivery make Paptrix our go-to partner for all our retail packaging and folding cartons across India.",
+        "rating": 5,
+        "author": {
+          "name": "Vikram Singhania",
+          "role": "Supply Chain Director",
+          "avatar": "/images/logo.png"
+        }
+      },
+      {
+        "id": "4",
+        "quote": "From custom sizing prototypes to final packaging batch, everything was smooth and flawlessly executed. Truly packaging that delivers!",
+        "rating": 5,
+        "author": {
+          "name": "Pooja Verma",
+          "role": "Operations Head, LuxeCraft",
+          "avatar": "/images/logo.png"
+        }
+      }
+    ]
+  },
+  "testimonialsPage": {
+    "badge": "CLIENT TESTIMONIAL",
+    "items": [
+      {
+        "id": "01",
+        "titleLine1": "A Packaging Partner",
+        "titleLine2": "We Can Rely On.",
+        "description": "From the initial concept to the final delivery, the team understood our brand vision perfectly. The quality, attention to detail, and creative packaging solutions have helped us elevate our product presentation and make a stronger impression in the market. Truly a professional and reliable partner.",
+        "author": "Sarah Khan",
+        "role": "Founder, PureBlend Organics",
+        "image": "/images/Eco-Friendly.png"
+      },
+      {
+        "id": "02",
+        "titleLine1": "Exceptional Quality",
+        "titleLine2": "And Speed of Delivery.",
+        "description": "Paptrix exceeded our expectations with custom kraft paper and corrugated boxes. The attention to detail, structural integrity, and sustainable materials align flawlessly with our eco-friendly brand philosophy.",
+        "author": "Rahul Mehta",
+        "role": "CEO, Mehta Enterprises",
+        "image": "/images/Minimalist-Plum.png"
+      },
+      {
+        "id": "03",
+        "titleLine1": "Elevating Our",
+        "titleLine2": "Unboxing Experience.",
+        "description": "Our customers frequently rave about our high-finish folding cartons. The durability during transit and pristine brand appearance have elevated customer retention remarkably.",
+        "author": "Ananya Sharma",
+        "role": "Creative Director, EcoGlow",
+        "image": "/images/Open-Cardboard.png"
+      },
+      {
+        "id": "04",
+        "titleLine1": "Precision Engineering",
+        "titleLine2": "For Complex Products.",
+        "description": "From protective internal cushioning to branded luxury packaging, Paptrix delivered top-tier solutions that keep our logistics seamless and our products secure.",
+        "author": "Vikram Singhania",
+        "role": "Supply Chain Director, NexaCraft",
+        "image": "/images/Premium-Purple.png"
+      }
+    ]
+  },
+  "insights": {
+    "badge": "FROM OUR BLOG",
+    "title": "INSIGHTS",
+    "viewAll": {
+      "label": "VIEW ALL",
+      "href": "/blogs"
+    },
+    "articles": [
+      {
+        "id": "sustainable-packaging",
+        "title": "Sustainable Packaging: A Smarter Choice for\na Greener Tomorrow",
+        "date": "August 17, 2026",
+        "image": "/images/Eco-Friendly.png",
+        "slug": "sustainable-packaging-greener-tomorrow"
+      },
+      {
+        "id": "power-of-less",
+        "title": "The Power of Less:\nMinimal Packaging, Maximum Impact",
+        "date": "August 10, 2026",
+        "image": "/images/Minimalist-Plum.png",
+        "slug": "the-power-of-less-minimal-packaging"
+      }
+    ]
+  },
+  "footer": {
+    "brand": {
+      "logo": "/images/logo.png",
+      "description": "Delivering innovative, sustainable and high-quality packaging solutions to help businesses grow with a greener tomorrow.",
+      "socials": [
+        {
+          "name": "Facebook",
+          "href": "https://facebook.com",
+          "icon": "facebook"
+        },
+        {
+          "name": "Twitter / X",
+          "href": "https://twitter.com",
+          "icon": "twitter"
+        },
+        {
+          "name": "LinkedIn",
+          "href": "https://linkedin.com",
+          "icon": "linkedin"
+        },
+        {
+          "name": "Instagram",
+          "href": "https://instagram.com",
+          "icon": "instagram"
+        }
+      ]
+    },
+    "socialLinks": [
+      { "id": "01", "name": "FACEBOOK", "href": "https://facebook.com" },
+      { "id": "02", "name": "TWITTER", "href": "https://twitter.com" },
+      { "id": "03", "name": "LINKEDIN", "href": "https://linkedin.com" },
+      { "id": "04", "name": "INSTAGRAM", "href": "https://instagram.com" }
+    ],
+    "letsTalkCard": {
+      "subtitle": "HAVE A PROJECT?",
+      "titleLine1": "LET'S",
+      "titleLine2": "TALK.",
+      "description": "Got a packaging challenge or a new idea? We're here to help.",
+      "ctaText": "GET IN TOUCH",
+      "ctaHref": "/contact-us",
+      "bgGraphicImage": "/images/Premium-Purple.png"
+    },
+    "bottom": {
+      "copyright": "Copyright 2026 . All rights reserved. Powered by Lestow.",
+      "links": [
+        { "label": "ABOUT US", "href": "/about" },
+        { "label": "CONTACT", "href": "/contact-us" },
+        { "label": "CAREER", "href": "/careers" },
+        { "label": "FAQS", "href": "/faqs" }
+      ]
+    }
+  },
+  "contactPage": {
+    "badge": "GET IN TOUCH",
+    "titleLine1": "LET'S",
+    "titleLine2": "CREATE",
+    "titleLine3": "SOMETHING",
+    "titleLine4": "TOGETHER",
+    "intro": "Have a project in mind or need assistance with your packaging requirements? We'd love to hear from you. Our team is here to help you with ideas, custom solutions, and expert guidance.",
+    "leftImage": "/images/Eco-Friendly.png",
+    "form": {
+      "buttonText": "SEND MESSAGE"
+    },
+    "infoCards": [
+      {
+        "id": "location",
+        "icon": "map-pin",
+        "title": "OUR LOCATION",
+        "detail": "Sector 62, Noida, Uttar Pradesh"
+      },
+      {
+        "id": "email",
+        "icon": "mail",
+        "title": "EMAIL US",
+        "detail": "info@paptrix.com",
+        "href": "mailto:info@paptrix.com"
+      },
+      {
+        "id": "phone",
+        "icon": "phone",
+        "title": "CALL US",
+        "detail": "+1 00000 00000",
+        "href": "tel:+100000 00000"
+      }
+    ],
+    "bottomFeature": {
+      "titleLine1": "IDEAS",
+      "titleLine2": "PACKAGED",
+      "titleLine3": "BETTER.",
+      "description": "From concept to final packaging, we're just a message away.",
+      "image": "/images/Kraft-Paper.png"
+    }
+  },
+  "getAQuotePage": {
+    "banner": {
+      "title": "Get a Quote",
+      "image": "/images/Minimalist-Plum.png"
+    },
+    "header": {
+      "badge": "GET A QUOTE",
+      "titleLine1": "TAILORED",
+      "titleLine2": "PACKAGING",
+      "titleLine3": "FOR YOUR",
+      "titleLine4": "BRAND.",
+      "description": "Share your requirements and our team will prepare a customized quote with the best solution for your packaging needs.",
+      "heroImage": "/images/Minimalist-Plum.png"
+    },
+    "form": {
+      "heading": "GET YOUR CUSTOM QUOTE",
+      "subheading": "Fill in the details below and we'll get back to you with a personalized quote, including product specifications, material options, and pricing.",
+      "buttonText": "REQUEST QUOTE",
+      "securityNotice": "Your information is secure and will only be used to provide a quote."
+    },
+    "howItWorks": {
+      "badge": "HOW IT WORKS",
+      "titleLine1": "FROM IDEA",
+      "titleLine2": "TO QUOTE",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Share Your Requirements",
+          "description": "Tell us about your product, quantity, materials, and any specific ideas.",
+          "icon": "chat"
+        },
+        {
+          "step": "02",
+          "title": "We Analyze & Suggest",
+          "description": "Our team reviews your requirements and recommends the best options.",
+          "icon": "document"
+        },
+        {
+          "step": "03",
+          "title": "Get a Customized Quote",
+          "description": "Receive a detailed quote with specifications and pricing.",
+          "icon": "mail"
+        }
+      ],
+      "featureImage": "/images/Eco-Friendly.png"
+    }
+  },
+  "blogsPage": {
+    "banner": {
+      "title": "Blogs",
+      "image": "/images/Open-Cardboard.png"
+    },
+    "badge": "FROM OUR BLOG",
+    "title": "INSIGHTS",
+    "articles": [
+      {
+        "id": "how-custom-packaging-enhances-brand-value",
+        "date": "AUGUST 17, 2026",
+        "title": "How Custom Packaging\nEnhances Brand Value",
+        "image": "/images/Minimalist-Plum.png",
+        "slug": "how-custom-packaging-enhances-brand-value"
+      },
+      {
+        "id": "sustainable-packaging-materials-greener-future",
+        "date": "AUGUST 12, 2026",
+        "title": "Sustainable Packaging\nMaterials for a Greener Future",
+        "image": "/images/Eco-Friendly.png",
+        "slug": "sustainable-packaging-materials-greener-future"
+      },
+      {
+        "id": "from-concept-to-creation-our-packaging-process",
+        "date": "AUGUST 08, 2026",
+        "title": "From Concept to Creation:\nOur Packaging Process",
+        "image": "/images/Kraft-Paper.png",
+        "slug": "from-concept-to-creation-our-packaging-process"
+      },
+      {
+        "id": "power-of-less-minimal-packaging-maximum-impact",
+        "date": "AUGUST 05, 2026",
+        "title": "The Power of Less:\nMinimal Packaging, Maximum Impact",
+        "image": "/images/Premium-Purple.png",
+        "slug": "power-of-less-minimal-packaging-maximum-impact"
+      }
+    ]
+  },
+  "serviceDetailPage": {
+    "banner": {
+      "title": "Services detail",
+      "image": "/images/Minimalist-Plum.png"
+    },
+    "header": {
+      "badge": "PACKAGING SOLUTIONS",
+      "titleLine1": "CUSTOM",
+      "titleLine2": "PACKAGING",
+      "titleLine3": "FOR A STRONGER",
+      "titleLine4": "BRAND TOMORROW.",
+      "description": "We design and manufacture custom packaging solutions that protect your products, reflect your brand identity, and create a lasting impression."
+    },
+    "ourApproach": {
+      "title": "OUR APPROACH",
+      "p1": "Every packaging solution is crafted with a balance of creativity, functionality, and sustainability, ensuring it meets your business goals.",
+      "p2": "From concept to production, we focus on precision, quality materials, and design excellence to deliver packaging that stands out in the market."
+    },
+    "gallery": {
+      "largeHeroImage": "/images/Eco-Friendly.png",
+      "tapeImage": "/images/Minimalist-Plum.png",
+      "corrugatedImage": "/images/Open-Cardboard.png",
+      "bigBottomImage": "/images/Kraft-Paper.png"
+    },
+    "designThatSpeaks": {
+      "titleLine1": "DESIGN",
+      "titleLine2": "THAT",
+      "titleHighlight": "SPEAKS.",
+      "description": "From structure to finishing, every detail is designed to tell your brand story and make your product instantly recognizable."
+    },
+    "materialMatters": {
+      "badge": "MATERIAL MATTERS",
+      "description": "We use high-quality, durable and eco-friendly materials to ensure your packaging is strong, safe and environmentally responsible."
+    },
+    "madeToCreate": {
+      "titleLine1": "MADE",
+      "titleLine2": "TO CREATE",
+      "titleHighlight": "LASTING",
+      "titleLine3": "IMPACT.",
+      "description": "Our packaging solutions help your products stand out on the shelf, build brand trust and leave a memorable unboxing experience for your customers."
+    }
+  },
+  "blogDetailPage": {
+    "banner": {
+      "title": "Blog Detail",
+      "image": "/images/Open-Cardboard.png"
+    },
+    "header": {
+      "date": "AUGUST 17, 2026",
+      "author": "BY PAPTRIX TEAM",
+      "titleLine1": "THE POWER",
+      "titleLine2": "OF LESS:",
+      "subtitle": "MINIMAL PACKAGING, MAXIMUM IMPACT",
+      "introQuote": "In a world of constant visual noise, minimal packaging stands out. It's not about doing less for the sake of it — it's about making thoughtful choices that create a stronger, more meaningful impression."
+    },
+    "heroImage": "/images/Minimalist-Plum.png",
+    "leadParagraph": "Minimal packaging focuses on clarity, function, and purpose. By removing unnecessary elements, it highlights what truly matters — your product, your values, and your story. At Paptrix, we believe simplicity is a powerful design tool that can elevate your brand while supporting a more sustainable tomorrow.",
+    "section01": {
+      "step": "01",
+      "titleLine1": "SIMPLICITY",
+      "titleLine2": "BUILDS A STRONGER",
+      "titleHighlight": "BRAND PRESENCE",
+      "description": "A clean, minimal design communicates confidence and quality. With fewer visual elements, your brand message becomes clearer and more memorable, helping your product stand out on the shelf and online.",
+      "image": "/images/Premium-Purple.png"
+    },
+    "section02": {
+      "step": "02",
+      "titleLine1": "LESS MATERIAL",
+      "titleHighlight": "A BRIGHTER FUTURE",
+      "description": "Minimal packaging often means using fewer materials, which helps reduce waste and lower environmental impact. It's a smarter, more responsible approach that supports both your brand and the planet.",
+      "image": "/images/Eco-Friendly.png"
+    },
+    "section03": {
+      "step": "03",
+      "titleLine1": "THOUGHTFUL DESIGN",
+      "titleLine2": "CREATES",
+      "titleHighlight": "LASTING VALUE",
+      "description": "Every detail matters. From material selection to structural integrity, minimal packaging is about intentional design that protects your product, enhances the unboxing experience, and leaves a lasting impression."
+    },
+    "pullQuote": {
+      "line1": "Good packaging doesn't shout.",
+      "line2": "It speaks with purpose."
+    }
+  }
+}
