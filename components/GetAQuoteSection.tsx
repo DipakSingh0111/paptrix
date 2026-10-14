@@ -2,11 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function GetAQuoteSection() {
-  const { getAQuotePage } = data as any;
-
+export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -22,7 +20,7 @@ export default function GetAQuoteSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  if (!getAQuotePage) return null;
+  if (!data) return null;
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -65,29 +63,29 @@ export default function GetAQuoteSection() {
             <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-[3.5px] bg-[#582f49] inline-block" />
               <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#55555c] uppercase">
-                {getAQuotePage.header.badge}
+                {data.badge}
               </span>
             </div>
 
             {/* Display headline */}
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-[-0.04em] leading-[0.92] uppercase select-text">
               <span className="block text-[#111113]">
-                {getAQuotePage.header.titleLine1}
+                {data.heading.lines[0]}
               </span>
               <span className="block text-[#582f49]">
-                {getAQuotePage.header.titleLine2}
+                {data.heading.lines[1]}
               </span>
               <span className="block text-[#111113]">
-                {getAQuotePage.header.titleLine3}
+                {data.heading.lines[2]}
               </span>
               <span className="block text-[#111113] flex items-baseline">
-                <span>{getAQuotePage.header.titleLine4.replace(/\.$/, "")}</span>
+                <span>{data.heading.lines[3].replace(/\.$/, "")}</span>
                 <span className="inline-block w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#582f49] ml-1.5 translate-y-[-2px]" />
               </span>
             </h2>
 
             <p className="text-[14px] sm:text-[16px] text-[#55555e] font-normal leading-relaxed mt-6 max-w-lg">
-              {getAQuotePage.header.description}
+              {data.description}
             </p>
           </div>
 
@@ -95,7 +93,7 @@ export default function GetAQuoteSection() {
           <div className="lg:col-span-6">
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
-                src={getAQuotePage.header.heroImage}
+                src={data.image}
                 alt="Tailored Packaging for Your Brand"
                 fill
                 priority
@@ -114,11 +112,11 @@ export default function GetAQuoteSection() {
             {/* Form Section Header */}
             <div className="mb-6">
               <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#111113] uppercase">
-                {getAQuotePage.form.heading}
+                {data.form.heading}
               </h3>
               <div className="w-12 h-[3px] bg-[#111113] mt-2 mb-3" />
               <p className="text-xs sm:text-[13.5px] text-[#66666e] leading-relaxed max-w-xl">
-                {getAQuotePage.form.subheading}
+                {data.form.subheading}
               </p>
             </div>
 
@@ -168,7 +166,7 @@ export default function GetAQuoteSection() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+92 300 1234567"
+                    placeholder="+1 00000 00000"
                     className="w-full bg-transparent text-[13.5px] text-[#141416] placeholder:text-neutral-400 focus:outline-none"
                   />
                 </div>
@@ -256,17 +254,17 @@ export default function GetAQuoteSection() {
                 </div>
               </div>
 
-              {/* Row 5: Packaging Size (Optional) */}
+              {/* Row 5: Packaging Size / Dimensions */}
               <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white">
                 <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
-                  Packaging Size (Optional)
+                  Packaging Size / Dimensions (L x W x H in inches/cm)
                 </label>
                 <input
                   type="text"
                   name="packagingSize"
                   value={formData.packagingSize}
                   onChange={handleChange}
-                  placeholder="Length × Width × Height (in cm)"
+                  placeholder="e.g. 10 x 8 x 4 inches"
                   className="w-full bg-transparent text-[13.5px] text-[#141416] placeholder:text-neutral-400 focus:outline-none"
                 />
               </div>
@@ -274,76 +272,69 @@ export default function GetAQuoteSection() {
               {/* Row 6: Additional Details */}
               <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white">
                 <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
-                  Additional Details
+                  Additional Details / Printing Requirements
                 </label>
                 <textarea
                   name="additionalDetails"
                   rows={3}
                   value={formData.additionalDetails}
                   onChange={handleChange}
-                  placeholder="Tell us about your requirements ..."
+                  placeholder="Tell us about branding, colors, finish (matte/gloss/foil), or any specific requirements..."
                   className="w-full bg-transparent text-[13.5px] text-[#141416] placeholder:text-neutral-400 focus:outline-none resize-none"
                 />
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button & Security Notice */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#4a1733] hover:bg-[#5b1f3f] text-white py-4 px-7 flex items-center justify-between transition-colors shadow-sm group disabled:opacity-70 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 bg-[#582f49] hover:bg-[#6e395b] text-white text-xs sm:text-[13px] font-bold tracking-[0.16em] uppercase rounded-none transition-all duration-300 shadow-sm active:scale-[0.99] disabled:opacity-70 cursor-pointer"
                 >
-                  <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] uppercase">
-                    {isSubmitting ? "PROCESSING..." : getAQuotePage.form.buttonText}
+                  <span>
+                    {isSubmitting ? "PROCESSING..." : data.form.buttonText}
                   </span>
-                  <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
+                  <span className="text-sm">→</span>
                 </button>
-              </div>
 
-              {/* Security guarantee line */}
-              <div className="flex items-center gap-2 pt-1 text-neutral-500 text-[11px] sm:text-[12px]">
-                <svg className="w-3.5 h-3.5 shrink-0 text-neutral-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                </svg>
-                <span>{getAQuotePage.form.securityNotice}</span>
+                <p className="text-[11px] text-[#787880] mt-3">
+                  🔒 {data.form.securityNotice}
+                </p>
               </div>
 
               {submitted && (
-                <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm rounded">
-                  Thank you! Your quote request has been received. Our team will review your specifications and contact you shortly.
+                <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-medium">
+                  ✓ Thank you! We have received your quote request and will contact you within 24 hours.
                 </div>
               )}
             </form>
           </div>
 
-          {/* Right Column: How it Works & Packaging Stack */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-12">
-            {/* HOW IT WORKS Block */}
-            <div>
+          {/* Right Column: HOW IT WORKS + Boxes Image */}
+          <div className="lg:col-span-5 flex flex-col justify-start">
+            <div className="bg-transparent pb-8">
               {/* Badge */}
-              <div className="flex items-center gap-3 mb-2">
-                <span className="w-10 h-[3px] bg-[#582f49] inline-block" />
-                <span className="text-[11px] font-bold tracking-[0.2em] text-[#55555c] uppercase">
-                  {getAQuotePage.howItWorks.badge}
+              <div className="flex items-center gap-3 mb-3">
+                <span className="w-10 h-[3px] bg-[#582f49] rounded-full inline-block" />
+                <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#55555c] uppercase">
+                  {data.howItWorks.badge}
                 </span>
               </div>
 
               {/* Title */}
               <h4 className="text-3xl sm:text-4xl font-black tracking-[-0.03em] leading-[0.95] uppercase mb-8 select-text">
                 <span className="block text-[#111113]">
-                  {getAQuotePage.howItWorks.titleLine1}
+                  {data.howItWorks.heading.lines[0]}
                 </span>
                 <span className="block text-[#582f49]">
-                  {getAQuotePage.howItWorks.titleLine2}
+                  {data.howItWorks.heading.lines[1]}
                 </span>
               </h4>
 
               {/* Vertical Steps with Connected Dashed Line */}
               <div className="relative space-y-6">
-                {getAQuotePage.howItWorks.steps.map(
-                  (step: any, index: number) => (
+                {data.howItWorks.list.map(
+                  (step, index) => (
                     <div key={step.step} className="relative flex items-start gap-4">
                       {/* Left: Soft rounded icon badge */}
                       <div className="relative shrink-0 flex flex-col items-center">
@@ -366,7 +357,7 @@ export default function GetAQuoteSection() {
                         </div>
 
                         {/* Vertical dotted connecting line between steps */}
-                        {index < getAQuotePage.howItWorks.steps.length - 1 && (
+                        {index < data.howItWorks.list.length - 1 && (
                           <div className="w-[1.5px] h-9 border-l-2 border-dotted border-neutral-300 my-1" />
                         )}
                       </div>
@@ -392,7 +383,7 @@ export default function GetAQuoteSection() {
             {/* Bottom Image: Packaging Boxes on Pedestal */}
             <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] overflow-hidden bg-neutral-100 shadow-sm mt-4">
               <Image
-                src={getAQuotePage.howItWorks.featureImage}
+                src={data.howItWorks.featureImage}
                 alt="Paptrix Custom Boxes"
                 fill
                 sizes="(max-width: 1024px) 100vw, 550px"

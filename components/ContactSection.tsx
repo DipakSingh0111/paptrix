@@ -2,11 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function ContactSection() {
-  const { contactPage } = data;
-
+export default function ContactSection({ data }: SectionProps.ContactPage) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +17,7 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  if (!contactPage) return null;
+  if (!data) return null;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -55,217 +53,188 @@ export default function ContactSection() {
             <div className="flex items-center gap-3 mb-3 sm:mb-4">
               <span className="w-10 sm:w-14 h-[3px] bg-[#58344e] rounded-full inline-block" />
               <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#55555c] uppercase">
-                {contactPage.badge}
+                {data.badge}
               </span>
             </div>
 
-            {/* Giant Heading matching exact reference image typography */}
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-black tracking-[-0.04em] leading-[0.9] uppercase select-text">
-              <span className="block text-[#111113]">
-                {contactPage.titleLine1}
-              </span>
-              <span className="block text-[#582f49]">
-                {contactPage.titleLine2}
-              </span>
-              <span className="block text-[#111113]">
-                {contactPage.titleLine3}
-              </span>
-              <span className="block text-[#111113] flex items-baseline">
-                <span>{contactPage.titleLine4}</span>
-                <span className="inline-block w-3.5 h-3.5 sm:w-4 sm:h-4 bg-[#582f49] ml-1.5 translate-y-[-2px]" />
-              </span>
-            </h2>
+            {/* Massive Display Title */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-black tracking-[-0.04em] leading-[0.92] uppercase select-text">
+              <span className="block text-[#111113]">{data.heading.lines[0]}</span>
+              <span className="block text-[#111113]">{data.heading.lines[1]}</span>
+              <span className="block text-[#582f49]">{data.heading.lines[2]}</span>
+              <span className="block text-[#582f49]">{data.heading.lines[3]}</span>
+            </h1>
           </div>
 
-          {/* Intro Paragraph on Right with Thin Dark Vertical Divider Line */}
-          <div className="lg:w-[360px] shrink-0 lg:pl-10 relative flex items-center">
-            <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[1.5px] bg-[#3a3a40]" />
-            <p className="text-[14px] sm:text-[15px] leading-[1.65] text-[#4a4a52] font-normal">
-              {contactPage.intro}
+          <div className="lg:max-w-md flex flex-col justify-end pt-2">
+            <p className="text-[14px] sm:text-[16px] text-[#55555e] font-normal leading-relaxed">
+              {data.description}
             </p>
           </div>
         </div>
 
-        {/* Middle Row: Left Photo + Right Contact Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start mb-20 sm:mb-28">
-          {/* Left Column: Packaging Still Life Image */}
-          <div className="lg:col-span-6 relative flex justify-center">
-            <div className="relative w-full aspect-[4/4.9] overflow-hidden bg-neutral-100 shadow-sm">
+        {/* Content Section: Left Photo + Right Underlined Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16 sm:mb-24">
+          {/* Left Column: Packaging Visual matching screenshot proportions */}
+          <div className="lg:col-span-5 w-full">
+            <div className="relative w-full aspect-[4/5] sm:aspect-[4/4.8] lg:aspect-[4/5.2] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
-                src={contactPage.leftImage}
-                alt="Paptrix Packaging Materials"
+                src={data.image}
+                alt="Paptrix Packaging Workshop"
                 fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 580px"
+                sizes="(max-width: 1024px) 100vw, 500px"
                 className="object-cover object-center"
+                priority
               />
             </div>
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="lg:col-span-6 flex flex-col justify-between">
-            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
-              {/* Name */}
-              <div>
-                <label className="block text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
-                  NAME
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  className="w-full pb-2 bg-transparent border-b border-neutral-300 text-sm sm:text-[15px] text-[#141416] placeholder:text-neutral-400 focus:outline-none focus:border-[#58344e] transition-colors"
-                />
-              </div>
-
-              {/* Email & Phone in 2 columns */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
-                    EMAIL
-                  </label>
+          {/* Right Column: Clean Underlined Form */}
+          <div className="lg:col-span-7 flex flex-col justify-start pt-2">
+            <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-10">
+              {/* Row 1: Name & Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Full Name *"
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm sm:text-base text-[#111113] placeholder-neutral-400 focus:outline-none focus:border-[#582f49] transition-colors"
+                  />
+                </div>
+                <div className="relative">
                   <input
                     type="email"
                     name="email"
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="yourmail@mail.com"
-                    className="w-full pb-2 bg-transparent border-b border-neutral-300 text-sm sm:text-[15px] text-[#141416] placeholder:text-neutral-400 focus:outline-none focus:border-[#58344e] transition-colors"
+                    placeholder="Email Address *"
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm sm:text-base text-[#111113] placeholder-neutral-400 focus:outline-none focus:border-[#582f49] transition-colors"
                   />
                 </div>
+              </div>
 
-                <div>
-                  <label className="block text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
-                    PHONE
-                  </label>
+              {/* Row 2: Phone & Company */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
+                <div className="relative">
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+92 300 1234567"
-                    className="w-full pb-2 bg-transparent border-b border-neutral-300 text-sm sm:text-[15px] text-[#141416] placeholder:text-neutral-400 focus:outline-none focus:border-[#58344e] transition-colors"
+                    placeholder="Phone Number"
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm sm:text-base text-[#111113] placeholder-neutral-400 focus:outline-none focus:border-[#582f49] transition-colors"
+                  />
+                </div>
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Company Name"
+                    className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm sm:text-base text-[#111113] placeholder-neutral-400 focus:outline-none focus:border-[#582f49] transition-colors"
                   />
                 </div>
               </div>
 
-              {/* Company (Optional) */}
-              <div>
-                <label className="block text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
-                  COMPANY (OPTIONAL)
-                </label>
-                <input
-                  type="text"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Your company name"
-                  className="w-full pb-2 bg-transparent border-b border-neutral-300 text-sm sm:text-[15px] text-[#141416] placeholder:text-neutral-400 focus:outline-none focus:border-[#58344e] transition-colors"
-                />
-              </div>
-
-              {/* Subject */}
-              <div>
-                <label className="block text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
-                  SUBJECT
-                </label>
+              {/* Row 3: Subject */}
+              <div className="relative">
                 <input
                   type="text"
                   name="subject"
-                  required
                   value={formData.subject}
                   onChange={handleChange}
-                  placeholder="How can we help?"
-                  className="w-full pb-2 bg-transparent border-b border-neutral-300 text-sm sm:text-[15px] text-[#141416] placeholder:text-neutral-400 focus:outline-none focus:border-[#58344e] transition-colors"
+                  placeholder="Subject / Service Requirement"
+                  className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm sm:text-base text-[#111113] placeholder-neutral-400 focus:outline-none focus:border-[#582f49] transition-colors"
                 />
               </div>
 
-              {/* Message */}
-              <div>
-                <label className="block text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
-                  MESSAGE
-                </label>
+              {/* Row 4: Message */}
+              <div className="relative">
                 <textarea
                   name="message"
                   required
-                  rows={3}
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Type your message here ..."
-                  className="w-full pb-2 bg-transparent border-b border-neutral-300 text-sm sm:text-[15px] text-[#141416] placeholder:text-neutral-400 focus:outline-none focus:border-[#58344e] transition-colors resize-none"
+                  placeholder="How can we help you? *"
+                  className="w-full bg-transparent border-b border-neutral-300 py-3 text-sm sm:text-base text-[#111113] placeholder-neutral-400 focus:outline-none focus:border-[#582f49] transition-colors resize-none"
                 />
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button Row */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#4a1733] hover:bg-[#5b1f3f] text-white py-4 px-7 flex items-center justify-between transition-colors shadow-sm group disabled:opacity-70 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-[#582f49] hover:bg-[#6c395a] text-white text-xs sm:text-[13px] font-bold tracking-[0.16em] uppercase rounded-none transition-all duration-300 shadow-sm active:scale-[0.99] disabled:opacity-70 cursor-pointer"
                 >
-                  <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.2em] uppercase">
-                    {isSubmitting ? "SENDING..." : contactPage.form.buttonText}
+                  <span>
+                    {isSubmitting ? "SENDING..." : data.form.buttonText}
                   </span>
-                  <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
+                  <span className="text-sm">→</span>
                 </button>
               </div>
 
               {submitted && (
-                <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded">
-                  Thank you! Your message has been sent successfully. We will get back to you shortly.
+                <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-medium">
+                  ✓ Thank you! Your message has been sent successfully. We will get back to you shortly.
                 </div>
               )}
             </form>
 
-            {/* 3 Contact Info Cards: Location, Email, Phone */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 sm:pt-12 mt-8">
-              {contactPage.infoCards.map((card) => (
-                <div key={card.id} className="flex flex-col items-start">
-                  {/* Soft Rounded Icon Square with larger prominent dimensions */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[20px] bg-[#f5f0f2] flex items-center justify-center text-[#582f49] mb-4 shadow-xs">
+            {/* Bottom Contact Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8 pt-10 sm:pt-14 mt-10 sm:mt-12 border-t border-neutral-200">
+              {data.list.map((card) => (
+                <div
+                  key={card.id}
+                  className="flex sm:flex-col items-center sm:items-start gap-4 sm:gap-0 p-4 sm:p-0 rounded-2xl sm:rounded-none bg-[#fbf9fa] sm:bg-transparent border border-neutral-100 sm:border-0"
+                >
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl sm:rounded-none bg-[#f6eff3] text-[#582f49] flex items-center justify-center sm:mb-4 transition-transform duration-300 hover:scale-105 shrink-0">
                     {card.icon === "map-pin" && (
-                      <svg className="w-8 h-8 sm:w-10 sm:h-10 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.75">
+                      <svg className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.75">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     )}
                     {card.icon === "mail" && (
-                      <svg className="w-8 h-8 sm:w-10 sm:h-10 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.75">
+                      <svg className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.75">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     )}
                     {card.icon === "phone" && (
-                      <svg className="w-8 h-8 sm:w-10 sm:h-10 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.75">
+                      <svg className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="1.75">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     )}
                   </div>
 
-                  <h5 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
-                    {card.title}
-                  </h5>
+                  <div className="min-w-0 flex-1">
+                    <h5 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#141416] mb-1">
+                      {card.title}
+                    </h5>
 
-                  {card.href ? (
-                    <a
-                      href={card.href}
-                      className="text-xs sm:text-[13px] text-[#4a4a52] hover:text-[#582f49] transition-colors inline-flex items-center gap-1 group font-normal"
-                    >
-                      <span>{card.detail}</span>
-                      <span className="text-[11px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                        ↗
-                      </span>
-                    </a>
-                  ) : (
-                    <p className="text-xs sm:text-[13px] text-[#4a4a52] font-normal leading-relaxed whitespace-pre-line">
-                      {card.detail}
-                    </p>
-                  )}
+                    {card.href ? (
+                      <a
+                        href={card.href}
+                        className="text-xs sm:text-[13px] text-[#4a4a52] hover:text-[#582f49] transition-colors inline-flex items-center gap-1 group font-normal break-all"
+                      >
+                        <span>{card.detail}</span>
+                        <span className="text-[11px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0">
+                          ↗
+                        </span>
+                      </a>
+                    ) : (
+                      <p className="text-xs sm:text-[13px] text-[#4a4a52] font-normal leading-relaxed whitespace-pre-line">
+                        {card.detail}
+                      </p>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -281,19 +250,19 @@ export default function ContactSection() {
             {/* Bold 3-line headline */}
             <h3 className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-black tracking-[-0.03em] leading-[0.94] uppercase select-text">
               <span className="block text-[#111113]">
-                {contactPage.bottomFeature.titleLine1}
+                {data.bottomFeature.heading.lines[0]}
               </span>
               <span className="block text-[#111113]">
-                {contactPage.bottomFeature.titleLine2}
+                {data.bottomFeature.heading.lines[1]}
               </span>
               <span className="block text-[#582f49]">
-                {contactPage.bottomFeature.titleLine3}
+                {data.bottomFeature.heading.lines[2]}
               </span>
             </h3>
 
             {/* Subtitle / Description text */}
             <p className="text-[14px] sm:text-[16px] text-[#55555e] font-normal leading-relaxed mt-6 max-w-md">
-              {contactPage.bottomFeature.description}
+              {data.bottomFeature.description}
             </p>
           </div>
 
@@ -301,7 +270,7 @@ export default function ContactSection() {
             {/* 16:9 Image container matching the clean wide perspective in user screenshot */}
             <div className="relative w-full aspect-[16/9] sm:aspect-[16/9.5] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
-                src={contactPage.bottomFeature.image}
+                src={data.bottomFeature.image}
                 alt="Ideas Packaged Better"
                 fill
                 sizes="(max-width: 1024px) 100vw, 750px"

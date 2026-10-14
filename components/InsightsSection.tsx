@@ -3,10 +3,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function InsightsSection() {
-  const { insights } = data;
+export default function InsightsSection({ data, limit }: SectionProps.BlogNews) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -27,7 +26,9 @@ export default function InsightsSection() {
     return () => observer.disconnect();
   }, []);
 
-  if (!insights) return null;
+  if (!data) return null;
+
+  const articles = limit ? data.list.slice(0, limit) : data.list;
 
   return (
     <section
@@ -44,26 +45,26 @@ export default function InsightsSection() {
             <div className="flex items-center gap-3 mb-2 sm:mb-3">
               <span className="w-8 sm:w-11 h-[2.5px] bg-[#58344e] rounded-full inline-block" />
               <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.25em] text-[#55555c] uppercase">
-                {insights.badge}
+                {data.badge}
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-tighter text-[#141416] leading-none uppercase flex items-baseline">
-              <span>{insights.title}</span>
+              <span>{data.heading.main}</span>
               <span className="inline-block w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 bg-[#45273c] ml-1 sm:ml-1.5 translate-y-[-2px]" />
             </h2>
           </div>
           <Link
-            href={insights.viewAll.href}
+            href={data.cta.href}
             className="group inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold tracking-[0.16em] text-[#141416] uppercase hover:text-[#58344e] transition-colors pb-1 border-b border-[#141416] hover:border-[#58344e] w-fit sm:mb-2"
           >
-            <span>{insights.viewAll.label}</span>
+            <span>{data.cta.label}</span>
             <span className="text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
               ↗
             </span>
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-9 lg:gap-10">
-          {insights.articles.map((article, idx) => (
+          {articles.map((article, idx) => (
             <Link
               key={article.id}
               href={`/blogs/${article.slug}`}

@@ -4,17 +4,11 @@ import React, { useEffect, useState, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { SectionProps } from "@/types/paptrix.types";
 
 export interface BreadcrumbItem {
   label: string;
   href?: string;
-}
-
-interface PageBannerProps {
-  title: string;
-  image?: string;
-  subtitle?: string;
-  breadcrumbs?: BreadcrumbItem[];
 }
 
 function BreadcrumbBar({
@@ -121,7 +115,7 @@ export default function PageBanner({
   image = "/images/Open-Cardboard.png",
   subtitle,
   breadcrumbs,
-}: PageBannerProps) {
+}: SectionProps.PageBanner) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

@@ -2,16 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function Hero() {
-  const { hero } = data;
+export default function Hero({ data }: SectionProps.Hero) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!data) return null;
 
   return (
     <section className="relative w-full bg-black overflow-hidden select-none">
@@ -23,8 +24,8 @@ export default function Hero() {
           }`}
         >
           <Image
-            src={hero.bannerImage}
-            alt={`${hero.titleLine1} ${hero.titleLine2}`}
+            src={data.image.src}
+            alt={`${data.heading.main} ${data.heading.highlight}`}
             fill
             priority
             sizes="100vw"
@@ -40,10 +41,10 @@ export default function Hero() {
         >
           <h1 className="font-extrabold tracking-tight leading-[1.08] select-text">
             <span className="block text-white text-5xl sm:text-7xl md:text-8xl lg:text-[96px] font-black tracking-tight drop-shadow-sm">
-              {hero.titleLine1}
+              {data.heading.main}
             </span>
             <span className="block text-[#58344e] text-5xl sm:text-7xl md:text-8xl lg:text-[96px] font-black tracking-tight mt-1 sm:mt-2 drop-shadow-sm">
-              {hero.titleLine2}
+              {data.heading.highlight}
             </span>
           </h1>
         </div>

@@ -1,5 +1,6 @@
 import PageBanner from "@/components/common/PageBanner";
 import TestimonialDetailSection from "@/components/TestimonialDetailSection";
+import { getPaptrixSections } from "@/lib/paptrix";
 
 export const metadata = {
   title: "Testimonials | Paptrix Paper & Packaging Solutions",
@@ -8,6 +9,8 @@ export const metadata = {
 };
 
 export default function TestimonialsPage() {
+  const sections = getPaptrixSections();
+
   return (
     <div className="w-full bg-white">
       {/* Reusable PageBanner */}
@@ -17,7 +20,9 @@ export default function TestimonialsPage() {
       />
 
       {/* Detailed Client Testimonial Slider Section */}
-      <TestimonialDetailSection />
+      <TestimonialDetailSection
+        data={sections.Testimonials?.variants?.PaptrixTestimonials1?.page}
+      />
     </div>
   );
 }

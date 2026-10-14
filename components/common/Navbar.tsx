@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function Navbar() {
-  const { brand, navLinks, cta } = data.navbar;
+export default function Navbar({ data }: SectionProps.Header) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  if (!data) return null;
+
+  const { brand, menu, cta } = data;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-black border-b border-neutral-900 transition-all duration-300">
@@ -35,12 +38,12 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center">
             <div className="flex items-center space-x-2">
-              {navLinks.map((item, index) => {
+              {menu.map((item, index) => {
                 const isSelected =
                   pathname === item.href ||
                   (item.href !== "/" && pathname.startsWith(item.href));
                 return (
-                  <React.Fragment key={item.id}>
+                  <React.Fragment key={item.id || item.href}>
                     <Link
                       href={item.href}
                       className={`text-[15px] transition-all duration-200 select-none ${
@@ -53,7 +56,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* Vertical Divider */}
-                    {index < navLinks.length - 1 && (
+                    {index < menu.length - 1 && (
                       <span
                         className="h-4 w-[1px] bg-neutral-700/80 mx-1 select-none"
                         aria-hidden="true"
@@ -126,13 +129,13 @@ export default function Navbar() {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#0d0d0d] border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
-          {navLinks.map((item) => {
+          {menu.map((item) => {
             const isSelected =
               pathname === item.href ||
               (item.href !== "/" && pathname.startsWith(item.href));
             return (
               <Link
-                key={item.id}
+                key={item.id || item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${

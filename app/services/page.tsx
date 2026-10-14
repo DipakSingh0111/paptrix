@@ -1,5 +1,6 @@
 import PageBanner from "@/components/common/PageBanner";
 import ServicesGridSection from "@/components/ServicesGridSection";
+import { getPaptrixSections } from "@/lib/paptrix";
 
 export const metadata = {
   title: "Services | Paptrix Paper & Packaging Solutions",
@@ -8,16 +9,15 @@ export const metadata = {
 };
 
 export default function ServicesPage() {
+  const sections = getPaptrixSections();
+
   return (
     <div className="w-full bg-[#111111]">
-      {/* Reusable PageBanner */}
       <PageBanner
         title="Services"
         image="/images/Open-Cardboard.png"
       />
-
-      {/* 2x2 Services Grid Section */}
-      <ServicesGridSection />
+      <ServicesGridSection data={sections.Services?.variants?.PaptrixServices1} />
     </div>
   );
 }

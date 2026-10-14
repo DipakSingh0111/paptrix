@@ -2,16 +2,15 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function TestimonialDetailSection() {
-  const { testimonialsPage } = data;
+export default function TestimonialDetailSection({ data }: SectionProps.TestimonialDetail) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  if (!testimonialsPage || !testimonialsPage.items.length) return null;
+  if (!data || !data.list || !data.list.length) return null;
 
-  const total = testimonialsPage.items.length;
-  const currentItem = testimonialsPage.items[currentIndex];
+  const total = data.list.length;
+  const currentItem = data.list[currentIndex];
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
@@ -46,7 +45,7 @@ export default function TestimonialDetailSection() {
               <div className="flex items-center gap-3">
                 <span className="w-8 sm:w-11 h-[2.5px] bg-[#58344e] rounded-full inline-block" />
                 <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.25em] text-[#55555c] uppercase">
-                  {testimonialsPage.badge}
+                  {data.badge}
                 </span>
               </div>
             </div>
@@ -61,75 +60,69 @@ export default function TestimonialDetailSection() {
               </svg>
             </div>
 
-            {/* Headline with fixed height container to avoid jumping */}
-            <div className="h-[76px] sm:h-[90px] lg:h-[100px] flex items-center overflow-hidden">
-              <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-black tracking-tight leading-[1.08] text-[#141416]">
-                <span className="block text-[#141416]">
-                  {currentItem.titleLine1}
-                </span>
-                <span className="block text-[#58344e]">
-                  {currentItem.titleLine2}
-                </span>
-              </h2>
-            </div>
+            {/* Testimonial Headline */}
+            <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-[#141416] leading-[1.08] mb-4">
+              <span className="block">{currentItem.titleLine1}</span>
+              <span className="block text-[#58344e]">
+                {currentItem.titleLine2}
+              </span>
+            </h3>
 
-            {/* Paragraph Review with fixed height container to avoid layout shift */}
-            <div className="h-[120px] sm:h-[130px] flex items-start overflow-hidden mt-3 sm:mt-4">
-              <p className="text-[14px] sm:text-[15px] leading-relaxed text-[#55555c] font-normal line-clamp-5">
-                {currentItem.description}
-              </p>
-            </div>
+            {/* Testimonial Long Description */}
+            <p className="text-[14px] sm:text-[15.5px] leading-relaxed text-[#55555c] font-normal mb-8 line-clamp-5">
+              {currentItem.description}
+            </p>
 
-            {/* Author info & Prev/Next Circle Buttons */}
-            <div className="flex items-end justify-between mt-6 sm:mt-8 pt-2">
-              <div className="h-[68px] flex flex-col justify-end">
-                <h4 className="text-lg sm:text-xl font-black text-[#141416] tracking-tight">
+            {/* Bottom Row: Author details on left, Carousel controls on right */}
+            <div className="flex items-center justify-between pt-4 border-t border-neutral-200">
+              <div>
+                <h4 className="text-base sm:text-lg font-bold text-[#141416] tracking-tight">
                   {currentItem.author}
                 </h4>
-                <p className="text-xs sm:text-[13px] text-[#71717a] font-normal mt-0.5">
+                <p className="text-xs sm:text-sm text-[#787880] font-normal mt-0.5">
                   {currentItem.role}
                 </p>
-                {/* Horizontal bottom plum accent bar */}
-                <div className="w-10 sm:w-12 h-[2.5px] bg-[#58344e] rounded-full mt-3" />
               </div>
 
-              {/* Prev / Next Outline Circle Buttons */}
-              <div className="flex flex-col items-center gap-3">
+              {/* Prev / Next Circular Arrows */}
+              <div className="flex items-center gap-3">
                 <button
-                  onClick={handleNext}
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 flex items-center justify-center text-[#58344e] hover:border-[#58344e] hover:bg-[#58344e] hover:text-white transition-all duration-300 shadow-sm"
-                  aria-label="Next review"
+                  type="button"
+                  onClick={handlePrev}
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 flex items-center justify-center text-[#141416] hover:bg-[#58344e] hover:text-white hover:border-[#58344e] transition-all duration-300 cursor-pointer active:scale-95"
+                  aria-label="Previous Testimonial"
                 >
                   <svg
-                    className="w-4 h-4"
-                    viewBox="0 0 24 24"
+                    className="w-4 h-4 stroke-current"
                     fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
                   >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                    />
                   </svg>
                 </button>
 
                 <button
-                  onClick={handlePrev}
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-400 hover:border-[#141416] hover:text-[#141416] transition-all duration-300 shadow-sm"
-                  aria-label="Previous review"
+                  type="button"
+                  onClick={handleNext}
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-neutral-300 flex items-center justify-center text-[#141416] hover:bg-[#58344e] hover:text-white hover:border-[#58344e] transition-all duration-300 cursor-pointer active:scale-95"
+                  aria-label="Next Testimonial"
                 >
                   <svg
-                    className="w-4 h-4"
-                    viewBox="0 0 24 24"
+                    className="w-4 h-4 stroke-current"
                     fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
                   >
-                    <line x1="19" y1="12" x2="5" y2="12" />
-                    <polyline points="12 19 5 12 12 5" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
                   </svg>
                 </button>
               </div>

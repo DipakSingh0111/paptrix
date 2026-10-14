@@ -2,10 +2,9 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function WhyChooseUsSection() {
-  const { whyChooseUs } = data;
+export default function WhyChooseUsSection({ data }: SectionProps.WhyChooseUs) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -26,6 +25,8 @@ export default function WhyChooseUsSection() {
     return () => observer.disconnect();
   }, []);
 
+  if (!data) return null;
+
   return (
     <section
       ref={sectionRef}
@@ -41,22 +42,22 @@ export default function WhyChooseUsSection() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-10 h-[3px] bg-[#58344e] rounded-full inline-block" />
             <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-[#58344e] uppercase">
-              {whyChooseUs.badge}
+              {data.badge}
             </span>
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[0.98] text-[#1c1c1e] mb-6 select-none">
-            <span className="block">{whyChooseUs.headingMain}</span>
-            <span className="block">{whyChooseUs.headingSub}</span>
+            <span className="block">{data.heading.main}</span>
+            <span className="block">{data.heading.middle}</span>
             <span className="block text-[#58344e]">
-              {whyChooseUs.headingHighlight}
+              {data.heading.highlight}
             </span>
           </h2>
           <p className="max-w-2xl text-[15px] sm:text-[17px] leading-relaxed text-[#4a4a4f] mb-12 sm:mb-16 font-normal">
-            {whyChooseUs.description}
+            {data.description}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mb-14 sm:mb-16">
-          {whyChooseUs.features.map((feature, idx) => (
+          {data.list.map((feature, idx) => (
             <div
               key={feature.id}
               className={`flex items-center gap-4 transition-all duration-700 ease-out transform group ${
@@ -151,7 +152,7 @@ export default function WhyChooseUsSection() {
           style={{ transitionDelay: "600ms" }}
         >
           <Image
-            src={whyChooseUs.banner.image}
+            src={data.banner.image}
             alt="Packaging Solutions"
             fill
             sizes="(max-width: 1360px) 100vw, 1360px"
@@ -161,16 +162,16 @@ export default function WhyChooseUsSection() {
             {/* Title */}
             <h3 className="text-2xl sm:text-3xl md:text-[38px] font-extrabold tracking-tight leading-[1.12] text-white">
               <span className="block">
-                {whyChooseUs.banner.overlayCard.titleLine1}
+                {data.banner.overlayCard.titleLine1}
               </span>
               <span className="block">
-                {whyChooseUs.banner.overlayCard.titleLine2}
+                {data.banner.overlayCard.titleLine2}
               </span>
             </h3>
             <div className="w-12 sm:w-14 h-[3px] bg-white/90 rounded-full my-4 sm:my-5" />
             <div className="text-sm sm:text-base md:text-[17px] text-white/90 font-normal leading-relaxed tracking-wide">
-              <p>{whyChooseUs.banner.overlayCard.subLine1}</p>
-              <p>{whyChooseUs.banner.overlayCard.subLine2}</p>
+              <p>{data.banner.overlayCard.subLine1}</p>
+              <p>{data.banner.overlayCard.subLine2}</p>
             </div>
           </div>
         </div>

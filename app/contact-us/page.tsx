@@ -1,5 +1,6 @@
 import PageBanner from "@/components/common/PageBanner";
 import ContactSection from "@/components/ContactSection";
+import { getPaptrixSections } from "@/lib/paptrix";
 
 export const metadata = {
   title: "Contact Us | Paptrix Paper & Packaging Solutions",
@@ -8,6 +9,8 @@ export const metadata = {
 };
 
 export default function ContactPage() {
+  const sections = getPaptrixSections();
+
   return (
     <div className="w-full bg-white">
       {/* Reusable PageBanner */}
@@ -17,7 +20,9 @@ export default function ContactPage() {
       />
 
       {/* Main Contact Form & Details Section */}
-      <ContactSection />
+      <ContactSection
+        data={sections.ContactPage?.variants?.PaptrixContactPage1}
+      />
     </div>
   );
 }

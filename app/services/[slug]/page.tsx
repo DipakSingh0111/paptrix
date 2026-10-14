@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import PageBanner from "@/components/common/PageBanner";
 import ServiceDetailContent from "@/components/ServiceDetailContent";
-import data from "@/data/paptrix.json";
+import { getPaptrixSections, getPageBanners } from "@/lib/paptrix";
 
 export const metadata: Metadata = {
   title: "Services Detail | Paptrix Paper & Packaging Solutions",
@@ -11,18 +11,21 @@ export const metadata: Metadata = {
 };
 
 export default function ServiceDetailPage() {
-  const { serviceDetailPage } = data as any;
+  const sections = getPaptrixSections();
+  const pageBanners = getPageBanners();
+  const banner = pageBanners?.serviceDetail;
+  const serviceDetails = sections.Services?.variants?.PaptrixServices1?.serviceDetails;
 
   return (
     <main className="min-h-screen bg-white">
       {/* Reusable Page Banner */}
       <PageBanner
-        title={serviceDetailPage?.banner?.title || "Services detail"}
-        image={serviceDetailPage?.banner?.image || "/images/Minimalist-Plum.png"}
+        title={banner?.title || "Services detail"}
+        image={banner?.image || "/images/Minimalist-Plum.png"}
       />
 
       {/* Main Service Details Content Blocks */}
-      <ServiceDetailContent />
+      <ServiceDetailContent data={serviceDetails} />
     </main>
   );
 }

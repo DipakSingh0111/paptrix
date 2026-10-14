@@ -3,10 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function ServicesSection() {
-  const { services } = data;
+export default function ServicesSection({ data }: SectionProps.Services) {
+  if (!data) return null;
 
   return (
     <section className="w-full bg-[#141414] pt-14 sm:pt-16 pb-8 sm:pb-12 px-6 sm:px-10 lg:px-16">
@@ -14,15 +14,15 @@ export default function ServicesSection() {
         <div className="mb-10 sm:mb-12">
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[0.95] select-none">
             <span className="block text-white">
-              {services.heading.whiteText}
+              {data.heading.main}
             </span>
             <span className="block text-[#5c3751] mt-1">
-              {services.heading.plumText}
+              {data.heading.highlight}
             </span>
           </h2>
         </div>
         <div className="relative flex flex-col pb-6 sm:pb-8">
-          {services.items.map((service, index) => {
+          {data.list.map((service, index) => {
             const topOffset = 96 + index * 14;
 
             return (
@@ -52,11 +52,11 @@ export default function ServicesSection() {
                       </p>
 
                       <Link
-                        href={service.href}
+                        href={service.cta.href}
                         className="group/cta inline-flex flex-col items-end pt-1"
                       >
                         <div className="flex items-center gap-1.5 text-xs sm:text-sm md:text-base font-bold tracking-wider text-white">
-                          <span>{service.ctaText}</span>
+                          <span>{service.cta.label}</span>
                           <svg
                             className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
                             fill="none"

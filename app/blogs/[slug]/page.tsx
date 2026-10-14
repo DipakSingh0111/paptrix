@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import PageBanner from "@/components/common/PageBanner";
 import BlogDetailContent from "@/components/BlogDetailContent";
-import data from "@/data/paptrix.json";
+import { getPaptrixSections, getPageBanners } from "@/lib/paptrix";
 
 export const metadata: Metadata = {
   title: "The Power of Less: Minimal Packaging | Paptrix Insights",
@@ -11,18 +11,21 @@ export const metadata: Metadata = {
 };
 
 export default function BlogDetailPage() {
-  const { blogDetailPage } = data as any;
+  const sections = getPaptrixSections();
+  const pageBanners = getPageBanners();
+  const banner = pageBanners?.blogDetail;
+  const blogDetails = sections.BlogNews?.variants?.PaptrixBlogNews1?.details;
 
   return (
     <main className="min-h-screen bg-white">
       {/* Reusable Page Banner */}
       <PageBanner
-        title={blogDetailPage?.banner?.title || "Blog Detail"}
-        image={blogDetailPage?.banner?.image || "/images/Open-Cardboard.png"}
+        title={banner?.title || "Blog Detail"}
+        image={banner?.image || "/images/Open-Cardboard.png"}
       />
 
       {/* Main Blog Post Content */}
-      <BlogDetailContent />
+      <BlogDetailContent data={blogDetails} />
     </main>
   );
 }

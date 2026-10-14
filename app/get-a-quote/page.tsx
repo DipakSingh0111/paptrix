@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import PageBanner from "@/components/common/PageBanner";
 import GetAQuoteSection from "@/components/GetAQuoteSection";
-import data from "@/data/paptrix.json";
+import { getPaptrixSections, getPageBanners } from "@/lib/paptrix";
 
 export const metadata: Metadata = {
   title: "Get a Quote | Paptrix Paper & Packaging Solutions",
@@ -11,18 +11,21 @@ export const metadata: Metadata = {
 };
 
 export default function GetAQuotePage() {
-  const { getAQuotePage } = data as any;
+  const sections = getPaptrixSections();
+  const pageBanners = getPageBanners();
+  const banner = pageBanners?.getAQuote;
+  const quoteData = sections.GetQuote?.variants?.PaptrixGetQuote1;
 
   return (
     <main className="min-h-screen bg-white">
       {/* Reusable Page Banner */}
       <PageBanner
-        title={getAQuotePage?.banner?.title || "Get a Quote"}
-        image={getAQuotePage?.banner?.image || "/images/Minimalist-Plum.png"}
+        title={banner?.title || "Get a Quote"}
+        image={banner?.image || "/images/Minimalist-Plum.png"}
       />
 
       {/* Main Quote Details, Form & How It Works */}
-      <GetAQuoteSection />
+      <GetAQuoteSection data={quoteData} />
     </main>
   );
 }

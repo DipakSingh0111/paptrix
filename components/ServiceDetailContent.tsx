@@ -2,12 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-import data from "@/data/paptrix.json";
+import type { SectionProps } from "@/types/paptrix.types";
 
-export default function ServiceDetailContent() {
-  const { serviceDetailPage } = data as any;
-
-  if (!serviceDetailPage) return null;
+export default function ServiceDetailContent({ data }: SectionProps.ServiceDetail) {
+  if (!data) return null;
 
   return (
     <section className="w-full bg-[#fcfbfa] text-[#191919] pt-14 sm:pt-20 pb-20 sm:pb-28 px-6 sm:px-10 lg:px-16 overflow-hidden">
@@ -20,29 +18,29 @@ export default function ServiceDetailContent() {
             <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-[3.5px] bg-[#582f49] inline-block" />
               <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#55555c] uppercase">
-                {serviceDetailPage.header.badge}
+                {data.header.badge}
               </span>
             </div>
 
             {/* Giant Display Typography */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[82px] font-black tracking-[-0.04em] leading-[0.92] uppercase select-text">
               <span className="block text-[#111113]">
-                {serviceDetailPage.header.titleLine1}
+                {data.header.titleLines[0]}
               </span>
               <span className="block text-[#111113]">
-                {serviceDetailPage.header.titleLine2}
+                {data.header.titleLines[1]}
               </span>
               <span className="block text-[#582f49]">
-                {serviceDetailPage.header.titleLine3}
+                {data.header.titleLines[2]}
               </span>
               <span className="block text-[#582f49]">
-                {serviceDetailPage.header.titleLine4}
+                {data.header.titleLines[3]}
               </span>
             </h1>
 
             {/* Subtitle / Intro */}
             <p className="text-[14px] sm:text-[16px] text-[#55555e] font-normal leading-relaxed mt-6 sm:mt-8 max-w-xl">
-              {serviceDetailPage.header.description}
+              {data.header.description}
             </p>
           </div>
 
@@ -50,40 +48,39 @@ export default function ServiceDetailContent() {
           <div className="lg:col-span-4 lg:pl-8 relative flex flex-col justify-start pt-2">
             <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[1.5px] bg-[#3a3a40]" />
             <h4 className="text-[12px] sm:text-[13px] font-bold tracking-[0.16em] uppercase text-[#141416] mb-4">
-              {serviceDetailPage.ourApproach.title}
+              {data.ourApproach.title}
             </h4>
             <p className="text-[13px] sm:text-[14px] text-[#55555e] font-normal leading-relaxed mb-4">
-              {serviceDetailPage.ourApproach.p1}
+              {data.ourApproach.paragraphs[0]}
             </p>
             <p className="text-[13px] sm:text-[14px] text-[#55555e] font-normal leading-relaxed">
-              {serviceDetailPage.ourApproach.p2}
+              {data.ourApproach.paragraphs[1]}
             </p>
           </div>
         </div>
 
-        {/* ================= 2. MIDDLE PHOTO GRID & DESIGN THAT SPEAKS ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-16 sm:mb-20">
-          {/* Left Large Photo: Open Branded Box on Stone Pedestal */}
+        {/* ================= 2. LARGE PHOTO & TAPE PHOTO + DESIGN THAT SPEAKS ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 sm:mb-20">
+          {/* Left: Large Packaging Box Studio Visual */}
           <div className="lg:col-span-8">
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-neutral-100 shadow-sm">
+            <div className="relative w-full aspect-[16/9.5] sm:aspect-[16/9] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
-                src={serviceDetailPage.gallery.largeHeroImage}
+                src={data.gallery.largeHeroImage}
                 alt="Custom Packaging Presentation"
                 fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 850px"
+                sizes="(max-width: 1024px) 100vw, 900px"
                 className="object-cover object-center"
+                priority
               />
             </div>
           </div>
 
-          {/* Right Column: Tape Image + DESIGN THAT SPEAKS block */}
+          {/* Right: Tape Photo + DESIGN THAT SPEAKS Typography */}
           <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-8">
-            {/* Packaging Tape Square Image */}
-            <div className="relative w-full aspect-square overflow-hidden bg-neutral-100 shadow-sm">
+            <div className="relative w-full aspect-[16/11] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
-                src={serviceDetailPage.gallery.tapeImage}
-                alt="Custom Packaging Tape"
+                src={data.gallery.tapeImage}
+                alt="Branded Packaging Detail"
                 fill
                 sizes="(max-width: 1024px) 100vw, 450px"
                 className="object-cover object-center"
@@ -91,39 +88,35 @@ export default function ServiceDetailContent() {
             </div>
 
             {/* DESIGN THAT SPEAKS */}
-            <div className="pt-2">
-              <h3 className="text-3xl sm:text-4xl font-black tracking-[-0.03em] leading-[0.95] uppercase">
+            <div>
+              <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-[-0.03em] leading-[1.02] uppercase select-text">
                 <span className="block text-[#111113]">
-                  {serviceDetailPage.designThatSpeaks.titleLine1}
+                  {data.designThatSpeaks.heading.lines[0]}
                 </span>
                 <span className="block text-[#111113]">
-                  {serviceDetailPage.designThatSpeaks.titleLine2}{" "}
+                  {data.designThatSpeaks.heading.lines[1]}{" "}
                   <span className="text-[#582f49]">
-                    {serviceDetailPage.designThatSpeaks.titleHighlight}
+                    {data.designThatSpeaks.heading.highlight}
                   </span>
                 </span>
               </h3>
-
-              {/* Plum underline dash */}
-              <div className="w-10 h-[3px] bg-[#582f49] mt-3 mb-4" />
-
-              <p className="text-[13px] sm:text-[14px] text-[#55555e] font-normal leading-relaxed max-w-sm">
-                {serviceDetailPage.designThatSpeaks.description}
+              <p className="text-[13px] sm:text-[14px] text-[#55555e] font-normal leading-relaxed mt-4 max-w-sm">
+                {data.designThatSpeaks.description}
               </p>
             </div>
           </div>
         </div>
 
-        {/* ================= 3. MATERIAL MATTERS + CORRUGATED CARD STRIP ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-20 sm:mb-28">
-          {/* Left: Material Matters Text with Plum Accent */}
+        {/* ================= 3. MATERIAL MATTERS + STACKED PHOTO STRIP ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 sm:mb-20">
+          {/* Left: Section Header & Description */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="w-10 sm:w-12 h-[3px] bg-[#582f49] mb-4" />
             <h4 className="text-[12px] sm:text-[13px] font-bold tracking-[0.16em] uppercase text-[#141416] mb-3">
-              {serviceDetailPage.materialMatters.badge}
+              {data.materialMatters.badge}
             </h4>
             <p className="text-[13px] sm:text-[14px] text-[#55555e] font-normal leading-relaxed max-w-md">
-              {serviceDetailPage.materialMatters.description}
+              {data.materialMatters.description}
             </p>
           </div>
 
@@ -131,7 +124,7 @@ export default function ServiceDetailContent() {
           <div className="lg:col-span-4">
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
-                src={serviceDetailPage.gallery.corrugatedImage}
+                src={data.gallery.corrugatedImage}
                 alt="Material Close-up"
                 fill
                 sizes="(max-width: 1024px) 100vw, 450px"
@@ -147,16 +140,16 @@ export default function ServiceDetailContent() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <h2 className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-black tracking-[-0.04em] leading-[0.92] uppercase select-text">
               <span className="block text-[#111113]">
-                {serviceDetailPage.madeToCreate.titleLine1}
+                {data.madeToCreate.heading.lines[0]}
               </span>
               <span className="block text-[#111113]">
-                {serviceDetailPage.madeToCreate.titleLine2}
+                {data.madeToCreate.heading.lines[1]}
               </span>
               <span className="block text-[#582f49]">
-                {serviceDetailPage.madeToCreate.titleHighlight}
+                {data.madeToCreate.heading.highlight}
               </span>
               <span className="block text-[#111113]">
-                {serviceDetailPage.madeToCreate.titleLine3}
+                {data.madeToCreate.heading.end}
               </span>
             </h2>
 
@@ -164,7 +157,7 @@ export default function ServiceDetailContent() {
             <div className="w-12 h-[3.5px] bg-[#582f49] mt-4 sm:mt-5 mb-5 sm:mb-6" />
 
             <p className="text-[13px] sm:text-[15px] text-[#55555e] font-normal leading-relaxed max-w-md">
-              {serviceDetailPage.madeToCreate.description}
+              {data.madeToCreate.description}
             </p>
           </div>
 
@@ -172,7 +165,7 @@ export default function ServiceDetailContent() {
           <div className="lg:col-span-7">
             <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
-                src={serviceDetailPage.gallery.bigBottomImage}
+                src={data.gallery.bigBottomImage}
                 alt="Made to Create Lasting Impact"
                 fill
                 sizes="(max-width: 1024px) 100vw, 800px"
