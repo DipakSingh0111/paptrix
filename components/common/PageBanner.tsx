@@ -123,7 +123,6 @@ export default function PageBanner({
     return () => clearTimeout(timer);
   }, []);
 
-
   return (
     <section className="relative w-full bg-[#110f13] overflow-hidden select-none">
       {/* Container with exact alignment to logo and section grids */}
@@ -134,7 +133,9 @@ export default function PageBanner({
         {/* Right Background Graphic / 3D Packaging Boxes from the image */}
         <div
           className={`absolute right-0 top-0 bottom-0 w-full sm:w-2/3 lg:w-1/2 h-full transition-all duration-1000 ease-out transform ${
-            loaded ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-105 translate-x-10"
+            loaded
+              ? "opacity-100 scale-100 translate-x-0"
+              : "opacity-0 scale-105 translate-x-10"
           }`}
         >
           <Image
@@ -158,7 +159,6 @@ export default function PageBanner({
             {title}
           </h1>
 
-
           {/* Breadcrumb Navigation below title wrapped in Suspense */}
           <Suspense fallback={<div className="h-5 mt-4 sm:mt-5" />}>
             <BreadcrumbBar title={title} breadcrumbs={breadcrumbs} />
@@ -174,4 +174,3 @@ export default function PageBanner({
     </section>
   );
 }
-

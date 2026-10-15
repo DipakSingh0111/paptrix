@@ -15,9 +15,10 @@ export default function Navbar({ data }: SectionProps.Header) {
   const { brand, menu, cta } = data;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-black border-b border-neutral-900 transition-all duration-300">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="flex items-center justify-between h-[88px]">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/95 backdrop-blur-md border-b border-neutral-900 transition-all duration-300">
+        <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="flex items-center justify-between h-[88px]">
           {/* Brand Logo */}
           <Link
             href={brand.href}
@@ -173,5 +174,8 @@ export default function Navbar({ data }: SectionProps.Header) {
         </div>
       )}
     </header>
+    {/* Spacer so the page content doesn't get hidden underneath the fixed navbar */}
+    <div className="h-[88px] w-full shrink-0" aria-hidden="true" />
+  </>
   );
 }
