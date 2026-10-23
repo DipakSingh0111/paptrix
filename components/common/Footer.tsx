@@ -87,13 +87,11 @@ export default function Footer({ data }: SectionProps.Footer) {
                 />
               </div>
 
-              {/* Description */}
               <p className="text-sm sm:text-[15px] leading-relaxed text-white/70 max-w-[340px] font-normal mb-6">
                 {data.description}
               </p>
             </div>
 
-            {/* Social Icons with react-icons and Link */}
             <div className="flex items-center gap-3 pt-2">
               {(data.socials || []).map((social, idx) => (
                 <Link

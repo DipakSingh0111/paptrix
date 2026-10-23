@@ -24,7 +24,6 @@ export default function TestimonialDetailSection({ data }: SectionProps.Testimon
     <section className="w-full bg-white text-[#191919] py-16 sm:py-24 px-6 sm:px-10 lg:px-16 overflow-hidden select-none">
       <div className="max-w-[1360px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Portrait Photograph with fixed height and width */}
           <div className="lg:col-span-6 relative flex justify-center">
             <div className="relative w-full max-w-[560px] h-[380px] sm:h-[440px] md:h-[480px] lg:h-[520px] overflow-hidden rounded-none shadow-sm bg-neutral-100 shrink-0">
               <Image
@@ -38,9 +37,7 @@ export default function TestimonialDetailSection({ data }: SectionProps.Testimon
             </div>
           </div>
 
-          {/* Right Column: Detailed Testimonial Content with locked height */}
           <div className="lg:col-span-6 flex flex-col justify-between max-w-[560px] min-h-[380px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[520px]">
-            {/* Top Row: Badge + Horizontal Bar on Left */}
             <div className="flex items-center mb-6 sm:mb-8">
               <div className="flex items-center gap-3">
                 <span className="w-8 sm:w-11 h-[2.5px] bg-[#58344e] rounded-full inline-block" />
@@ -50,7 +47,6 @@ export default function TestimonialDetailSection({ data }: SectionProps.Testimon
               </div>
             </div>
 
-            {/* Giant Mauve Quote Icon ("") */}
             <div className="mb-3 sm:mb-4">
               <svg
                 className="w-12 h-10 sm:w-16 sm:h-12 text-[#e3d8df] fill-current"
@@ -60,7 +56,6 @@ export default function TestimonialDetailSection({ data }: SectionProps.Testimon
               </svg>
             </div>
 
-            {/* Testimonial Headline */}
             <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-[#141416] leading-[1.08] mb-4">
               <span className="block">{currentItem.titleLine1}</span>
               <span className="block text-[#58344e]">
@@ -68,12 +63,10 @@ export default function TestimonialDetailSection({ data }: SectionProps.Testimon
               </span>
             </h3>
 
-            {/* Testimonial Long Description */}
             <p className="text-[14px] sm:text-[15.5px] leading-relaxed text-[#55555c] font-normal mb-8 line-clamp-5">
               {currentItem.description}
             </p>
 
-            {/* Bottom Row: Author details on left, Carousel controls on right */}
             <div className="flex items-center justify-between pt-4 border-t border-neutral-200">
               <div>
                 <h4 className="text-base sm:text-lg font-bold text-[#141416] tracking-tight">
@@ -84,7 +77,6 @@ export default function TestimonialDetailSection({ data }: SectionProps.Testimon
                 </p>
               </div>
 
-              {/* Prev / Next Circular Arrows */}
               <div className="flex items-center gap-3">
                 <button
                   type="button"

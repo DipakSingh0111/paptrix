@@ -13,13 +13,11 @@ export default function TestimonialsPage() {
 
   return (
     <div className="w-full bg-white">
-      {/* Reusable PageBanner */}
       <PageBanner
         title="Testimonials"
         image="/images/Open-Cardboard.png"
       />
 
-      {/* Detailed Client Testimonial Slider Section */}
       <TestimonialDetailSection
         data={sections.Testimonials?.variants?.PaptrixTestimonials1?.page}
       />

@@ -17,7 +17,6 @@ export default function Hero({ data }: SectionProps.Hero) {
   return (
     <section className="relative w-full bg-black overflow-hidden select-none">
       <div className="relative w-full max-w-[1920px] mx-auto aspect-[16/7] sm:aspect-[16/6.8] md:aspect-[16/6.5] min-h-[380px] sm:min-h-[460px] md:min-h-[540px] lg:min-h-[620px] flex items-center justify-center">
-        {/* Background Graphic Mosaic with Packaging Products */}
         <div
           className={`absolute inset-0 transition-all duration-1000 ease-out transform ${
             loaded ? "opacity-100 scale-100" : "opacity-0 scale-105"
@@ -33,7 +32,6 @@ export default function Hero({ data }: SectionProps.Hero) {
           />
         </div>
 
-        {/* Center Typography matching reference image */}
         <div
           className={`relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl transition-all duration-1000 delay-200 ease-out transform ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"

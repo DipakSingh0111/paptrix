@@ -18,13 +18,11 @@ export default function BlogDetailPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Reusable Page Banner */}
       <PageBanner
         title={banner?.title || "Blog Detail"}
         image={banner?.image || "/images/Open-Cardboard.png"}
       />
 
-      {/* Main Blog Post Content */}
       <BlogDetailContent data={blogDetails} />
     </main>
   );

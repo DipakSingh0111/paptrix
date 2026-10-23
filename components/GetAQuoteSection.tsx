@@ -54,12 +54,8 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
   return (
     <section className="w-full bg-white text-[#191919] pt-12 sm:pt-16 pb-20 sm:pb-28 px-6 sm:px-10 lg:px-16 overflow-hidden">
       <div className="max-w-[1360px] mx-auto">
-        {/* ================= TOP SECTION ================= */}
-        {/* Left Column: Title & Description | Right Column: Open Luxury Box Photo */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16 sm:mb-20">
-          {/* Left: Giant Display Typography */}
           <div className="lg:col-span-6 flex flex-col justify-center">
-            {/* Dark plum dash badge */}
             <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-[3.5px] bg-[#582f49] inline-block" />
               <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#55555c] uppercase">
@@ -67,7 +63,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
               </span>
             </div>
 
-            {/* Display headline */}
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-[-0.04em] leading-[0.92] uppercase select-text">
               <span className="block text-[#111113]">
                 {data.heading.lines[0]}
@@ -89,7 +84,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
             </p>
           </div>
 
-          {/* Right: Open Box Packaging Photo */}
           <div className="lg:col-span-6">
             <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
@@ -104,12 +98,8 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
           </div>
         </div>
 
-        {/* ================= LOWER SECTION ================= */}
-        {/* Left: Detailed Quote Form | Right: How it Works & Packaging Stack */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Custom Quote Form */}
           <div className="lg:col-span-7">
-            {/* Form Section Header */}
             <div className="mb-6">
               <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#111113] uppercase">
                 {data.form.heading}
@@ -121,7 +111,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Row 1: Full Name & Email Address */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white">
                   <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
@@ -154,7 +143,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 </div>
               </div>
 
-              {/* Row 2: Phone Number & Company Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white">
                   <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
@@ -186,7 +174,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 </div>
               </div>
 
-              {/* Row 3: Product Type Dropdown */}
               <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white relative">
                 <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
                   Product Type <span className="text-[#a12338]">*</span>
@@ -213,7 +200,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 </div>
               </div>
 
-              {/* Row 4: Quantity & Material Preference */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white">
                   <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
@@ -254,7 +240,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 </div>
               </div>
 
-              {/* Row 5: Packaging Size / Dimensions */}
               <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white">
                 <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
                   Packaging Size / Dimensions (L x W x H in inches/cm)
@@ -269,7 +254,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 />
               </div>
 
-              {/* Row 6: Additional Details */}
               <div className="border border-neutral-300 rounded-[3px] px-3.5 py-2.5 focus-within:border-[#582f49] transition-colors bg-white">
                 <label className="block text-[11px] font-bold text-[#141416] tracking-wider uppercase mb-0.5">
                   Additional Details / Printing Requirements
@@ -284,7 +268,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 />
               </div>
 
-              {/* Submit Button & Security Notice */}
               <div className="pt-2">
                 <button
                   type="submit"
@@ -310,10 +293,8 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
             </form>
           </div>
 
-          {/* Right Column: HOW IT WORKS + Boxes Image */}
           <div className="lg:col-span-5 flex flex-col justify-start">
             <div className="bg-transparent pb-8">
-              {/* Badge */}
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-10 h-[3px] bg-[#582f49] rounded-full inline-block" />
                 <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#55555c] uppercase">
@@ -321,7 +302,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 </span>
               </div>
 
-              {/* Title */}
               <h4 className="text-3xl sm:text-4xl font-black tracking-[-0.03em] leading-[0.95] uppercase mb-8 select-text">
                 <span className="block text-[#111113]">
                   {data.howItWorks.heading.lines[0]}
@@ -331,12 +311,10 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                 </span>
               </h4>
 
-              {/* Vertical Steps with Connected Dashed Line */}
               <div className="relative space-y-6">
                 {data.howItWorks.list.map(
                   (step, index) => (
                     <div key={step.step} className="relative flex items-start gap-4">
-                      {/* Left: Soft rounded icon badge */}
                       <div className="relative shrink-0 flex flex-col items-center">
                         <div className="w-12 h-12 rounded-[14px] bg-[#f5f0f2] flex items-center justify-center text-[#582f49] z-10 shadow-xs">
                           {step.icon === "chat" && (
@@ -356,13 +334,11 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
                           )}
                         </div>
 
-                        {/* Vertical dotted connecting line between steps */}
                         {index < data.howItWorks.list.length - 1 && (
                           <div className="w-[1.5px] h-9 border-l-2 border-dotted border-neutral-300 my-1" />
                         )}
                       </div>
 
-                      {/* Right: Text content */}
                       <div className="pt-0.5">
                         <span className="text-[11px] font-bold tracking-wider text-[#a12338] block mb-0.5">
                           {step.step}
@@ -380,7 +356,6 @@ export default function GetAQuoteSection({ data }: SectionProps.GetQuote) {
               </div>
             </div>
 
-            {/* Bottom Image: Packaging Boxes on Pedestal */}
             <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.5] overflow-hidden bg-neutral-100 shadow-sm mt-4">
               <Image
                 src={data.howItWorks.featureImage}

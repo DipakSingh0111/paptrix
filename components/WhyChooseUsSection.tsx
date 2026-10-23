@@ -33,7 +33,6 @@ export default function WhyChooseUsSection({ data }: SectionProps.WhyChooseUs) {
       className="w-full bg-white text-[#191919] pt-14 sm:pt-16 pb-2 sm:pb-3 px-6 sm:px-10 lg:px-16 overflow-hidden"
     >
       <div className="max-w-[1360px] mx-auto">
-        {/* Top Header */}
         <div
           className={`transition-all duration-700 ease-out transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -159,7 +158,6 @@ export default function WhyChooseUsSection({ data }: SectionProps.WhyChooseUs) {
             className="object-cover object-center"
           />
           <div className="absolute left-0 bottom-0 z-20 w-full max-w-[340px] sm:max-w-[460px] md:max-w-[540px] bg-[#3a1d30] text-white pt-8 sm:pt-11 pb-10 sm:pb-12 px-7 sm:px-11 rounded-tr-[36px] sm:rounded-tr-[44px] shadow-2xl select-none">
-            {/* Title */}
             <h3 className="text-2xl sm:text-3xl md:text-[38px] font-extrabold tracking-tight leading-[1.12] text-white">
               <span className="block">
                 {data.banner.overlayCard.titleLine1}

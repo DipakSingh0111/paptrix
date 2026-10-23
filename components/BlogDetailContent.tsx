@@ -14,11 +14,8 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
   return (
     <article className="w-full bg-[#fcfbfa] text-[#191919] pt-14 sm:pt-20 pb-20 sm:pb-28 px-6 sm:px-10 lg:px-16 overflow-hidden">
       <div className="max-w-[1360px] mx-auto">
-        {/* ================= 1. HEADER SECTION ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-14 sm:mb-16">
-          {/* Left Column: Date/Author Tag + Giant Display Headline */}
           <div className="lg:col-span-8 flex flex-col justify-start">
-            {/* Meta bar: Plum Dash + Date + Separator + Author */}
             <div className="flex items-center gap-3 mb-4 flex-wrap">
               <span className="w-12 h-[3.5px] bg-[#582f49] inline-block" />
               <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] text-[#55555c] uppercase">
@@ -30,7 +27,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
               </span>
             </div>
 
-            {/* Giant Display Headline */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-black tracking-[-0.04em] leading-[0.92] uppercase select-text">
               <span className="block text-[#111113]">
                 {data.header.titleLine1}
@@ -40,13 +36,11 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
               </span>
             </h1>
 
-            {/* Subtitle / Tagline below headline */}
             <p className="text-[12px] sm:text-[13.5px] font-bold tracking-[0.16em] text-[#141416] uppercase mt-4">
               {data.header.subtitle}
             </p>
           </div>
 
-          {/* Right Column: Intro Quote with Left Border Divider */}
           <div className="lg:col-span-4 lg:pl-8 relative flex flex-col justify-start pt-2">
             <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[1.5px] bg-[#3a3a40]" />
             <p className="text-[13.5px] sm:text-[14.5px] text-[#55555e] font-normal leading-relaxed">
@@ -55,7 +49,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
           </div>
         </div>
 
-        {/* ================= 2. MAIN HERO PHOTO ================= */}
         <div className="relative w-full aspect-[16/8] sm:aspect-[16/7.5] md:aspect-[16/7] overflow-hidden bg-neutral-100 shadow-sm mb-10 sm:mb-12">
           <Image
             src={data.heroImage}
@@ -67,17 +60,14 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
           />
         </div>
 
-        {/* Lead Paragraph */}
         <div className="max-w-4xl mb-16 sm:mb-20">
           <p className="text-[14px] sm:text-[15.5px] text-[#4a4a52] font-normal leading-relaxed">
             {data.leadParagraph}
           </p>
         </div>
 
-        {/* ================= 3. SECTION 01: SIMPLICITY BUILDS A STRONGER BRAND PRESENCE ================= */}
         {section01 && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16 sm:mb-20">
-            {/* Left: Curved Kraft/Plum Sheet Image */}
             <div className="lg:col-span-6">
               <div className="relative w-full aspect-[16/9.5] sm:aspect-[16/9] overflow-hidden bg-neutral-100 shadow-sm">
                 <Image
@@ -90,9 +80,7 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
               </div>
             </div>
 
-            {/* Right: Step 01 + Heading + Description */}
             <div className="lg:col-span-6 flex flex-col justify-center">
-              {/* 01 with thin plum dash */}
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-[12px] font-bold tracking-wider text-[#141416]">
                   {section01.step}
@@ -100,7 +88,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
                 <span className="w-8 h-[2px] bg-[#582f49] inline-block" />
               </div>
 
-              {/* Headline */}
               <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black tracking-[-0.03em] leading-[1.02] uppercase mb-4">
                 {section01.heading.lines.map((line, idx) => (
                   <span key={idx} className="block text-[#111113]">
@@ -112,7 +99,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
                 </span>
               </h3>
 
-              {/* Description */}
               <p className="text-[13.5px] sm:text-[14.5px] text-[#55555e] font-normal leading-relaxed max-w-lg">
                 {section01.description}
               </p>
@@ -120,12 +106,9 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
           </div>
         )}
 
-        {/* ================= 4. SECTION 02: LESS MATERIAL A BRIGHTER FUTURE ================= */}
         {section02 && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16 sm:mb-20">
-            {/* Left: Step 02 + Heading + Description */}
             <div className="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1">
-              {/* 02 with thin plum dash */}
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-[12px] font-bold tracking-wider text-[#141416]">
                   {section02.step}
@@ -133,7 +116,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
                 <span className="w-8 h-[2px] bg-[#582f49] inline-block" />
               </div>
 
-              {/* Headline */}
               <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black tracking-[-0.03em] leading-[1.02] uppercase mb-4">
                 {section02.heading.lines.map((line, idx) => (
                   <span key={idx} className="block text-[#111113]">
@@ -145,13 +127,11 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
                 </span>
               </h3>
 
-              {/* Description */}
               <p className="text-[13.5px] sm:text-[14.5px] text-[#55555e] font-normal leading-relaxed max-w-lg">
                 {section02.description}
               </p>
             </div>
 
-            {/* Right: Open Box Overhead Image */}
             <div className="lg:col-span-6 order-1 lg:order-2">
               <div className="relative w-full aspect-[16/9.5] sm:aspect-[16/9] overflow-hidden bg-neutral-100 shadow-sm">
                 <Image
@@ -166,9 +146,7 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
           </div>
         )}
 
-        {/* ================= 5. SECTION 03 & PULL QUOTE ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left: Pull Quote Box with Double Quote Icon & Plum Dash */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             <div className="bg-transparent border-l-2 border-transparent lg:pl-4 py-4">
               <div className="text-[#582f49] text-5xl sm:text-6xl font-serif leading-none mb-3">
@@ -182,7 +160,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
             </div>
           </div>
 
-          {/* Right: Step 03 + THOUGHTFUL DESIGN CREATES LASTING VALUE */}
           {section03 && (
             <div className="lg:col-span-6 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-3">
@@ -192,7 +169,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
                 <span className="w-8 h-[2px] bg-[#582f49] inline-block" />
               </div>
 
-              {/* Headline */}
               <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black tracking-[-0.03em] leading-[1.02] uppercase mb-4">
                 <span className="block text-[#111113]">
                   {section03.heading.lines[0]}
@@ -205,7 +181,6 @@ export default function BlogDetailContent({ data }: SectionProps.BlogDetail) {
                 </span>
               </h3>
 
-              {/* Description */}
               <p className="text-[13.5px] sm:text-[14.5px] text-[#55555e] font-normal leading-relaxed max-w-lg">
                 {section03.description}
               </p>

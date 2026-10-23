@@ -34,7 +34,6 @@ export default function ServicesGridSection({ data }: SectionProps.Services) {
       className="w-full bg-[#111111] text-white pt-14 sm:pt-18 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-16 overflow-hidden select-none"
     >
       <div className="max-w-[1360px] mx-auto">
-        {/* Section Heading matching screenshot */}
         <div
           className={`mb-10 sm:mb-14 transition-all duration-700 ease-out transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -50,7 +49,6 @@ export default function ServicesGridSection({ data }: SectionProps.Services) {
           </h2>
         </div>
 
-        {/* 2x2 Services Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {data.list.map((item, index) => (
             <Link
@@ -63,7 +61,6 @@ export default function ServicesGridSection({ data }: SectionProps.Services) {
               }`}
               style={{ transitionDelay: `${index * 120}ms` }}
             >
-              {/* Background Image with Hover Micro-Zoom */}
               <div className="absolute inset-0 z-0">
                 <Image
                   src={item.image}
@@ -72,13 +69,10 @@ export default function ServicesGridSection({ data }: SectionProps.Services) {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                {/* Subtle dark gradient overlay on left for typography readability */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent pointer-events-none" />
               </div>
 
-              {/* Card Content Overlay */}
               <div className="relative z-10 w-full h-full p-6 sm:p-8 lg:p-9 flex flex-col justify-between">
-                {/* Top Row: 01 Category info on left, SEE DETAIL ↗ on right */}
                 <div className="flex items-start justify-between gap-4">
                   <div className="text-white/80 font-normal">
                     <span className="text-xs sm:text-sm font-bold tracking-wider mr-2 text-white/90">
@@ -91,7 +85,6 @@ export default function ServicesGridSection({ data }: SectionProps.Services) {
                     </span>
                   </div>
 
-                  {/* See Detail Action Link */}
                   <div className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold tracking-wider text-white uppercase pb-0.5 border-b border-white group-hover:border-[#c48cb2] group-hover:text-[#c48cb2] transition-colors shrink-0">
                     <span>{item.cta.label}</span>
                     <span className="text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -100,7 +93,6 @@ export default function ServicesGridSection({ data }: SectionProps.Services) {
                   </div>
                 </div>
 
-                {/* Bottom Row: Big Bold White Title */}
                 <div>
                   <h3 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-white tracking-tight leading-[1.05] whitespace-pre-line group-hover:text-white/95 transition-colors">
                     {item.titleLine1}

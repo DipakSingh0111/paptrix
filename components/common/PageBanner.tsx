@@ -125,12 +125,9 @@ export default function PageBanner({
 
   return (
     <section className="relative w-full bg-[#110f13] overflow-hidden select-none">
-      {/* Container with exact alignment to logo and section grids */}
       <div className="relative w-full max-w-[1360px] mx-auto min-h-[220px] sm:min-h-[260px] md:min-h-[300px] lg:min-h-[340px] flex items-center justify-between px-6 sm:px-10 lg:px-16">
-        {/* Subtle Dark Lighting & Gradient Backdrop */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-transparent z-10 pointer-events-none" />
 
-        {/* Right Background Graphic / 3D Packaging Boxes from the image */}
         <div
           className={`absolute right-0 top-0 bottom-0 w-full sm:w-2/3 lg:w-1/2 h-full transition-all duration-1000 ease-out transform ${
             loaded
@@ -148,18 +145,15 @@ export default function PageBanner({
           />
         </div>
 
-        {/* Left Title & Breadcrumbs */}
         <div
           className={`relative z-20 max-w-2xl transition-all duration-1000 delay-150 ease-out transform ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black text-white tracking-tight leading-none drop-shadow-md">
             {title}
           </h1>
 
-          {/* Breadcrumb Navigation below title wrapped in Suspense */}
           <Suspense fallback={<div className="h-5 mt-4 sm:mt-5" />}>
             <BreadcrumbBar title={title} breadcrumbs={breadcrumbs} />
           </Suspense>

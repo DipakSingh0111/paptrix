@@ -13,13 +13,11 @@ export default function ContactPage() {
 
   return (
     <div className="w-full bg-white">
-      {/* Reusable PageBanner */}
       <PageBanner
         title="Contact Us"
         image="/images/Open-Cardboard.png"
       />
 
-      {/* Main Contact Form & Details Section */}
       <ContactSection
         data={sections.ContactPage?.variants?.PaptrixContactPage1}
       />

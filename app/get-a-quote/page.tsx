@@ -18,13 +18,11 @@ export default function GetAQuotePage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Reusable Page Banner */}
       <PageBanner
         title={banner?.title || "Get a Quote"}
         image={banner?.image || "/images/Minimalist-Plum.png"}
       />
 
-      {/* Main Quote Details, Form & How It Works */}
       <GetAQuoteSection data={quoteData} />
     </main>
   );

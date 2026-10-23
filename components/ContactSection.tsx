@@ -46,10 +46,8 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
   return (
     <section className="w-full bg-white text-[#191919] pt-12 sm:pt-16 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-16 overflow-hidden">
       <div className="max-w-[1360px] mx-auto">
-        {/* Top Header Row: Big Bold Title on Left + Intro Paragraph on Right */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-16 mb-12 sm:mb-16">
           <div className="flex-1 max-w-[800px]">
-            {/* Badge with horizontal line */}
             <div className="flex items-center gap-3 mb-3 sm:mb-4">
               <span className="w-10 sm:w-14 h-[3px] bg-[#58344e] rounded-full inline-block" />
               <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#55555c] uppercase">
@@ -57,7 +55,6 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
               </span>
             </div>
 
-            {/* Massive Display Title */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-black tracking-[-0.04em] leading-[0.92] uppercase select-text">
               <span className="block text-[#111113]">
                 {data.heading.lines[0]}
@@ -81,9 +78,7 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
           </div>
         </div>
 
-        {/* Content Section: Left Photo + Right Underlined Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16 sm:mb-24">
-          {/* Left Column: Packaging Visual matching screenshot proportions */}
           <div className="lg:col-span-5 w-full">
             <div className="relative w-full aspect-[4/5] sm:aspect-[4/4.8] lg:aspect-[4/5.2] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
@@ -97,10 +92,8 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
             </div>
           </div>
 
-          {/* Right Column: Clean Underlined Form */}
           <div className="lg:col-span-7 flex flex-col justify-start pt-2">
             <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-10">
-              {/* Row 1: Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
                 <div className="relative">
                   <input
@@ -126,7 +119,6 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
                 </div>
               </div>
 
-              {/* Row 2: Phone & Company */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10">
                 <div className="relative">
                   <input
@@ -150,7 +142,6 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
                 </div>
               </div>
 
-              {/* Row 3: Subject */}
               <div className="relative">
                 <input
                   type="text"
@@ -162,7 +153,6 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
                 />
               </div>
 
-              {/* Row 4: Message */}
               <div className="relative">
                 <textarea
                   name="message"
@@ -175,7 +165,6 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
                 />
               </div>
 
-              {/* Submit Button Row */}
               <div className="pt-2">
                 <button
                   type="submit"
@@ -197,7 +186,6 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
               )}
             </form>
 
-            {/* Bottom Contact Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8 pt-10 sm:pt-14 mt-10 sm:mt-12 border-t border-neutral-200">
               {data.list.map((card) => (
                 <div
@@ -281,13 +269,10 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
           </div>
         </div>
 
-        {/* Bottom Feature Block: IDEAS PACKAGED BETTER */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pt-14 sm:pt-20 border-t border-neutral-200">
           <div className="lg:col-span-5 flex flex-col justify-center">
-            {/* Dark plum top dash */}
             <div className="w-12 sm:w-14 h-[3.5px] bg-[#582f49] mb-6 sm:mb-8" />
 
-            {/* Bold 3-line headline */}
             <h3 className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-black tracking-[-0.03em] leading-[0.94] uppercase select-text">
               <span className="block text-[#111113]">
                 {data.bottomFeature.heading.lines[0]}
@@ -300,14 +285,12 @@ export default function ContactSection({ data }: SectionProps.ContactPage) {
               </span>
             </h3>
 
-            {/* Subtitle / Description text */}
             <p className="text-[14px] sm:text-[16px] text-[#55555e] font-normal leading-relaxed mt-6 max-w-md">
               {data.bottomFeature.description}
             </p>
           </div>
 
           <div className="lg:col-span-7">
-            {/* 16:9 Image container matching the clean wide perspective in user screenshot */}
             <div className="relative w-full aspect-[16/9] sm:aspect-[16/9.5] overflow-hidden bg-neutral-100 shadow-sm">
               <Image
                 src={data.bottomFeature.image}

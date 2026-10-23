@@ -19,7 +19,6 @@ export default function Navbar({ data }: SectionProps.Header) {
       <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/95 backdrop-blur-md border-b border-neutral-900 transition-all duration-300">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="flex items-center justify-between h-[88px]">
-          {/* Brand Logo */}
           <Link
             href={brand.href}
             className="flex items-center group select-none shrink-0 py-1"
@@ -36,7 +35,6 @@ export default function Navbar({ data }: SectionProps.Header) {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center">
             <div className="flex items-center space-x-2">
               {menu.map((item, index) => {
@@ -56,7 +54,6 @@ export default function Navbar({ data }: SectionProps.Header) {
                       {item.label}
                     </Link>
 
-                    {/* Vertical Divider */}
                     {index < menu.length - 1 && (
                       <span
                         className="h-4 w-[1px] bg-neutral-700/80 mx-1 select-none"
@@ -69,7 +66,6 @@ export default function Navbar({ data }: SectionProps.Header) {
             </div>
           </nav>
 
-          {/* CTA Button */}
           <div className="hidden lg:flex items-center shrink-0">
             <Link
               href={cta.href}
@@ -92,7 +88,6 @@ export default function Navbar({ data }: SectionProps.Header) {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center">
             <button
               type="button"
@@ -127,7 +122,6 @@ export default function Navbar({ data }: SectionProps.Header) {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#0d0d0d] border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
           {menu.map((item) => {
@@ -174,7 +168,6 @@ export default function Navbar({ data }: SectionProps.Header) {
         </div>
       )}
     </header>
-    {/* Spacer so the page content doesn't get hidden underneath the fixed navbar */}
     <div className="h-[88px] w-full shrink-0" aria-hidden="true" />
   </>
   );

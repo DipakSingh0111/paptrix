@@ -68,10 +68,8 @@ export default function TestimonialsSection({ data }: SectionProps.Testimonials)
                 </div>
               </div>
 
-              {/* Slider Controls & Dots */}
               <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3 w-full sm:w-auto">
                 <div className="flex items-center gap-2">
-                  {/* Prev Button */}
                   <button
                     type="button"
                     onClick={prevSlide}
@@ -93,7 +91,6 @@ export default function TestimonialsSection({ data }: SectionProps.Testimonials)
                     </svg>
                   </button>
 
-                  {/* Next Button */}
                   <button
                     type="button"
                     onClick={nextSlide}
@@ -116,7 +113,6 @@ export default function TestimonialsSection({ data }: SectionProps.Testimonials)
                   </button>
                 </div>
 
-                {/* Dot Indicators */}
                 <div className="flex items-center gap-1.5 ml-1 sm:ml-2">
                   {data.list.map((_, dotIdx) => (
                     <button

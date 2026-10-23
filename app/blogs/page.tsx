@@ -18,13 +18,11 @@ export default function BlogsPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Reusable Page Banner */}
       <PageBanner
         title={banner?.title || "Blogs"}
         image={banner?.image || "/images/Open-Cardboard.png"}
       />
 
-      {/* Blogs 2x2 Grid Listing Section */}
       <BlogsListingSection data={blogPageData} />
     </main>
   );
