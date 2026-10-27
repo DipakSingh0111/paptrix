@@ -33,67 +33,83 @@ export default function InsightsSection({ data, limit }: SectionProps.BlogNews) 
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-white text-[#191919] pt-6 sm:pt-8 pb-14 sm:pb-20 px-6 sm:px-10 lg:px-16 overflow-hidden"
+      className="w-full bg-white text-[#1a1a1a] pt-10 sm:pt-14 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-16 overflow-hidden"
     >
       <div className="max-w-[1360px] mx-auto">
         <div
-          className={`flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10 transition-all duration-700 ease-out transform ${
+          className={`flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10 sm:mb-14 transition-all duration-700 ease-out transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <div>
-            <div className="flex items-center gap-3 mb-2 sm:mb-3">
-              <span className="w-8 sm:w-11 h-[2.5px] bg-[#58344e] rounded-full inline-block" />
-              <span className="text-[11px] sm:text-[12px] font-bold tracking-[0.25em] text-[#55555c] uppercase">
+            <div className="flex items-center gap-3 mb-3 sm:mb-4">
+              <span className="w-7 sm:w-9 h-[1.5px] bg-[#4a152c] inline-block" />
+              <span className="text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] text-[#666666] uppercase">
                 {data.badge}
               </span>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-tighter text-[#141416] leading-none uppercase flex items-baseline">
-              <span>{data.heading.main}</span>
-              <span className="inline-block w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 bg-[#45273c] ml-1 sm:ml-1.5 translate-y-[-2px]" />
+            <h2 className="text-[42px] sm:text-5xl md:text-6xl lg:text-[72px] font-black tracking-[-0.04em] text-[#1a1a1a] leading-none uppercase">
+              {data.heading.main}
+              <span className="text-[#4a152c]">.</span>
             </h2>
           </div>
+
           <Link
             href={data.cta.href}
-            className="group inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold tracking-[0.16em] text-[#141416] uppercase hover:text-[#58344e] transition-colors pb-1 border-b border-[#141416] hover:border-[#58344e] w-fit sm:mb-2"
+            className="group inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] font-semibold tracking-[0.14em] text-[#1a1a1a] uppercase border-b border-[#1a1a1a] pb-0.5 w-fit hover:text-[#4a152c] hover:border-[#4a152c] transition-colors sm:mb-1.5"
           >
             <span>{data.cta.label}</span>
-            <span className="text-sm transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            <span
+              aria-hidden
+              className="text-[13px] leading-none transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            >
               ↗
             </span>
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 sm:gap-9 lg:gap-10">
-          {articles.map((article, idx) => (
-            <Link
-              key={article.id}
-              href={`/blogs/${article.slug}`}
-              className={`group flex flex-col cursor-pointer transition-all duration-700 ease-out transform ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-12"
-              }`}
-              style={{ transitionDelay: `${200 + idx * 150}ms` }}
-            >
-              <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#dcd7ce]">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="pt-4 sm:pt-5 flex flex-col">
-                <h3 className="text-[20px] sm:text-[22px] lg:text-[24px] font-bold text-[#141416] tracking-[-0.02em] leading-[1.25] group-hover:text-[#58344e] transition-colors whitespace-pre-line">
-                  {article.title}
-                </h3>
-                <p className="text-[13px] sm:text-[14px] text-[#787880] font-normal tracking-normal mt-2.5">
-                  {article.date}
-                </p>
-              </div>
-            </Link>
-          ))}
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-10">
+          {articles.map((article, idx) => {
+            const isFeatured = idx === 0;
+
+            return (
+              <Link
+                key={article.id}
+                href={`/blogs/${article.slug}`}
+                className={`group flex flex-col cursor-pointer transition-all duration-700 ease-out transform ${
+                  isFeatured ? "lg:col-span-7" : "lg:col-span-5"
+                } ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+                style={{ transitionDelay: `${200 + idx * 150}ms` }}
+              >
+                <div className="relative w-full overflow-hidden bg-[#e8e4de] aspect-[16/11] sm:aspect-[16/10] lg:h-[360px] xl:h-[400px] lg:aspect-auto">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    sizes={
+                      isFeatured
+                        ? "(max-width: 1024px) 100vw, 60vw"
+                        : "(max-width: 1024px) 100vw, 40vw"
+                    }
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                </div>
+
+                <div className="pt-5 sm:pt-6 flex flex-col gap-2.5">
+                  <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold text-[#1a1a1a] tracking-[-0.02em] leading-[1.3] group-hover:text-[#4a152c] transition-colors whitespace-pre-line">
+                    {article.title}
+                  </h3>
+                  <p className="text-[13px] sm:text-[14px] text-[#666666] font-normal">
+                    {article.date}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

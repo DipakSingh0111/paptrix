@@ -73,7 +73,7 @@ export default function TestimonialsSection({ data }: SectionProps.Testimonials)
                   <button
                     type="button"
                     onClick={prevSlide}
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/25 flex items-center justify-center text-white hover:bg-white/15 transition-all duration-200 active:scale-95 shrink-0"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/25 flex items-center justify-center text-white hover:bg-white hover:text-[#3d2033] hover:border-white transition-all duration-200 active:scale-95 shrink-0"
                     aria-label="Previous Testimonial"
                   >
                     <svg
@@ -94,7 +94,7 @@ export default function TestimonialsSection({ data }: SectionProps.Testimonials)
                   <button
                     type="button"
                     onClick={nextSlide}
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-[#3d2033] flex items-center justify-center font-bold hover:bg-white/90 transition-all duration-200 shadow-md active:scale-95 shrink-0"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/25 flex items-center justify-center text-white hover:bg-white hover:text-[#3d2033] hover:border-white transition-all duration-200 active:scale-95 shrink-0"
                     aria-label="Next Testimonial"
                   >
                     <svg
@@ -102,7 +102,7 @@ export default function TestimonialsSection({ data }: SectionProps.Testimonials)
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      strokeWidth={2.5}
+                      strokeWidth={2}
                     >
                       <path
                         strokeLinecap="round"
